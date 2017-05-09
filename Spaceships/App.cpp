@@ -13,7 +13,6 @@ float App::enemyCreation() {
 }
 
 
-
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
 
 #if defined WIN32
