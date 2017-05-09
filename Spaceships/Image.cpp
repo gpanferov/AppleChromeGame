@@ -12,7 +12,7 @@ Image::Image(float x, float y, float w, float h, GLuint loadImg) {
 	img = loadImg;
 #endif
 
-	back = new TexRect(x + 0.1, y + 0.1, w, h);
+	back = new TexRect(x, y , w, h);
 }
 
 void Image::draw() {
