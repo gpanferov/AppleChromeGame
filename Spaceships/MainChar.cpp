@@ -42,11 +42,11 @@ void MainChar::setY(float y) {
 }
 
 void MainChar::incrementY() {
-	y += 0.0007;
+	y += 0.001;
 }
 
 void MainChar::decrementY() {
-	y -= 0.0007;
+	y -= 0.001;
 }
 
 bool MainChar::get_is_crouch() {

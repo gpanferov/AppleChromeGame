@@ -56,14 +56,6 @@ float App::enemyCreation() {
 	float final_num = 0.5 - num;
 	return final_num;
 }
-/*
-void App::replay() {
-enemies[2]->setX(2.5);
-enemies[0]->setX(4.0);
-enemies[3]->setX(5.5);
-enemies[3]->setX(7.0);
-}
-*/
 
 
 //Displays the score 
@@ -146,8 +138,10 @@ void App::draw() {
 	}
 	//Displays the text 
 	displayScoreInfo();
-	displayTitleInfo();
-	
+	if (score == 0) {
+		displayTitleInfo();
+		displayRulesInfo();
+	}
 		
 	//This is the main draw
 	glColor3f(0.0, 0.0, 0.0);
@@ -221,6 +215,7 @@ void App::replay() {
 	srand(time(NULL));
 	gameplay = true;
 	loop = true;
+	score = 0;
 }
 
 void App::idle() {
