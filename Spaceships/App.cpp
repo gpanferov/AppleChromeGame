@@ -11,8 +11,14 @@ float App::enemyCreation() {
 	float final_num = 0.5 - num;
 	return final_num;
 }
-
-
+/*
+void App::replay() {
+	enemies[2]->setX(2.5);
+	enemies[0]->setX(4.0);
+	enemies[3]->setX(5.5);
+	enemies[3]->setX(7.0);
+}
+*/
 
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
 
@@ -98,7 +104,7 @@ void App::draw() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	if (!loop) {
+	if (!gameplay) {
 		cd->draw();
 	}
 	//wb->draw();
@@ -158,6 +164,7 @@ void App::keyPress(unsigned char key) {
 	else if (key == 13) {
 		//	main_char->draw()
 		//gameStart = !gameStart
+		loop = true;
 		
 	}
 
@@ -178,16 +185,15 @@ void App::keyPress(unsigned char key) {
 
 	//down key
 	else if (key == 's') {
-		crouch = true;
+		crouch = !crouch;
 		if(!jump)
 		mc->crouch();
-	}
+	}  
 
 	else if (key == 'f') {
-		
-		//ec->setX(1.1);
-		//ac->setX(1.1);
-		//loop = true;
+		gameplay = !gameplay;
+		loop = !loop;
+		//replay();
 	}
 	
 }
@@ -199,7 +205,8 @@ void App::idle() {
 		
 		if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
 			cout << "end game" << endl;
-			loop = false;
+			gameplay = !gameplay;
+			loop = !loop;
 		}
 		if (enemyMove) {//this is to make the enemy move from right to left
 			enemies[0]->decrementX();
@@ -250,11 +257,7 @@ void App::idle() {
 
 		}
 
-		if (gameover) {
-			// Stop looping, otherwise final message will be displayed many times
-			loop = false;
-		}
-
+		
 		// Redraw the scene after all modifications have been made
 		//sleep_for(nanoseconds(1000));
 		redraw();

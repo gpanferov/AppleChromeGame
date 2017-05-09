@@ -31,8 +31,8 @@ class App : public GlutApp {
 	bool top_of_jump = false;
 	int score;
 	bool enemyMove = false;
-	bool gameover = false;
-	bool loop = true;
+	bool gameplay = true;
+	bool loop = false;
 	bool crouch = false;
 	bool isDown = false;
 	
@@ -50,9 +50,9 @@ public:
 	App(const char* label, int x, int y, int w, int h); 
 	void draw();
 	void keyPress(unsigned char key);
-	void keyUp(char key, int x, int y);
 	void idle();
 	float enemyCreation();
+	//void replay();
 	GLuint loadTexture(const char* filename);
 
 	GLuint characterImg;
