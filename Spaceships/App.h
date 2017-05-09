@@ -45,6 +45,7 @@ public:
 	EnemyChar *ec;
 	EnemyChar *ec1;
 	Image *cd; // CrashDialog
+	Image *ss;
 	//Image *wb; // WindowsBack
 	// Constructor, to initialize state
 	App(const char* label, int x, int y, int w, int h); 
@@ -60,6 +61,7 @@ public:
 	GLuint enemycharacterImg;
 	GLuint android[12];
 	GLuint crashImg;
+	GLuint startImg;
 	//GLuint windowsImg;
 
 	~App();
