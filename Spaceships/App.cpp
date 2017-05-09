@@ -283,7 +283,7 @@ void App::idle() {
 
 		
 		// Redraw the scene after all modifications have been made
-		//sleep_for(nanoseconds(1000));
+		sleep_for(nanoseconds(100));
 		redraw();
 	}
 	}
