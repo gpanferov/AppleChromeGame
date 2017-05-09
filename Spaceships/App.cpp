@@ -13,7 +13,7 @@ void App::enemyCreation() {
 	}
 	if (a % 4 == 0) {
 		//ec->changeSpeed();
-		cout << "speed changed" << endl;
+		//cout << "speed changed" << endl;
 	}
 }
 
