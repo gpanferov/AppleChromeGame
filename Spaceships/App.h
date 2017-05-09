@@ -11,6 +11,7 @@
 #include "MainChar.h"
 #include "AndroidChar.h"
 #include "CrashDialog.h"
+#include <ctime>
 
 #define MAINCHAR_X -0.8
 #define MAINCHAR_Y -0.13
@@ -36,16 +37,19 @@ class App : public GlutApp {
 	bool isDown = false;
 
 public:
+	deque<EnemyChar*> enemies;
 	MainChar *mc;
 	AndroidChar *ac;
+	AndroidChar *ac1;
 	EnemyChar *ec;
+	EnemyChar *ec1;
 	CrashDialog *cd;
 	// Constructor, to initialize state
 	App(const char* label, int x, int y, int w, int h); 
 	void draw();
 	void keyPress(unsigned char key);
 	void idle();
-	void enemyCreation();
+	float enemyCreation();
 	GLuint loadTexture(const char* filename);
 
 	GLuint characterImg;

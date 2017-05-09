@@ -1,22 +1,18 @@
 #include "App.h"
 
-int timer = 1;
-int enemyRate = 5;
-int a = 1;
 
 
-void App::enemyCreation() {
-	timer++;
 
-	if (timer % (3000*enemyRate) == 0) {
-		a++;
-		
-	}
-	if (a % 4 == 0) {
-		//ec->changeSpeed();
-		//cout << "speed changed" << endl;
-	}
+
+
+
+float App::enemyCreation() {
+	
+	float num = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+	float final_num = 0.5 - num;
+	return final_num;
 }
+
 
 
 
@@ -41,10 +37,15 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	}
 	crashImg = loadTexture("crash_img.bmp");
 #endif
+	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
-	ac = new AndroidChar(1.0, 0.55, android);
-	ec = new EnemyChar(1.0, -.19, enemycharacterImg);
+	enemies.push_back(new AndroidChar(4.5, 0.55, android));
+	enemies.push_back(new AndroidChar(8.5, 0.55, android));
+	enemies.push_back(new EnemyChar(2.5, -.19, enemycharacterImg));
+	enemies.push_back(new EnemyChar(6.5, -.19, enemycharacterImg));
 	cd = new CrashDialog(crashImg);
+	srand(time(NULL));
+	
 	enemyMove = true;
 	//characterBack = new TexRect(MAINCHAR_X + 0.1, MAINCHAR_Y + 0.1, 0.2, 0.2);
 }
@@ -96,8 +97,10 @@ void App::draw() {
 	//draws the beginning piece
 
 	mc->draw();
-	ac->draw();
-	ec->draw();
+	for (int i = 0; i < 4; i++) {
+		enemies[i]->draw();
+	}
+	
 		
 	/*for (int i = 0; i < enemies.size(); i++) {
 		enemies[i]->draw();
@@ -178,8 +181,8 @@ void App::keyPress(unsigned char key) {
 void App::idle() {
 	// loop should always be true, unless it's game over
 	if (loop) {
-		enemyCreation();
-		if (ec->contains(mc)) {
+		
+		if (enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
 			cout << "end game" << endl;
 			loop = false;
 		}
@@ -187,13 +190,28 @@ void App::idle() {
 			mc->crouch();
 		}
 		if (enemyMove) {//this is to make the enemy move from right to left
-			ac->decrementX();
-			ec->decrementX();
-			if ((ec->getX() + ec->getH()) < -1.5) {
-				ec->setX(1.1);
+			enemies[0]->decrementX();
+			enemies[1]->decrementX();
+			enemies[2]->decrementX();
+			enemies[3]->decrementX();
+			float num = enemyCreation() + 6.5;
+			
+			if ((enemies[0]->getX() + enemies[0]->getH()) < -1.5) {
+				enemies[0]->setX(num);
+				cout << num << endl;
 			}
-			if ((ac->getX() + ec->getH()) < -1.5) {
-				ac->setX(1.1);
+			if ((enemies[1]->getX() + enemies[1]->getH()) < -1.5) {
+				enemies[1]->setX(num);
+				cout << num << endl;
+			}
+		
+			if ((enemies[2]->getX() + enemies[2]->getH()) < -1.5) {
+				enemies[2]->setX(num);
+				cout << num << endl;
+			}
+			if ((enemies[3]->getX() + enemies[3]->getH()) < -1.5) {
+				enemies[3]->setX(num);
+				cout << num << endl;
 			}
 		}
 		if (jump) {
@@ -229,7 +247,7 @@ void App::idle() {
 		//sleep_for(nanoseconds(1000));
 		redraw();
 	}
-}
+	}
 
 App::~App() {
 
