@@ -35,11 +35,11 @@ void MainChar::setY(float y) {
 }
 
 void MainChar::incrementY() {
-	y += 0.0004;
+	y += 0.0007;
 }
 
 void MainChar::decrementY() {
-	y -= 0.0004;
+	y -= 0.0007;
 }
 
 void MainChar::draw() {

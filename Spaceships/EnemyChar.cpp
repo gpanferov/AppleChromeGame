@@ -56,7 +56,7 @@ void EnemyChar::draw() {
 
 bool EnemyChar::contains(MainChar * mc) {
 	if (((mc->getX() >= this->x) && (mc->getX() <= (this->x + this->h))) || (((mc->getX() + mc->getH()) >= this->x) && ((mc->getX() + mc->getH()) <= (this->x + this->h)))) {
-		if (((mc->getY() - mc->getH()) >= (this->y - this->h - .02)) && ((mc->getY() - mc->getH()) <= (this->y))) {
+		if (((mc->getY() - mc->getH()) >= (this->y - this->h - .02)) && ((mc->getY() - mc->getH()) <= (this->y) - .02)) {
 			cout << "Main Char x: " << mc->getX() << "  " << (mc->getX() + mc->getH()) << endl;
 			cout << "Main Char y: " << mc->getY() << "  " << (mc->getY() - mc->getH()) << endl;
 			cout << "Enemy Char x: " << this->x << "  " << (this->x + this->h) << endl;
