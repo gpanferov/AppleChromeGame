@@ -27,7 +27,11 @@ float MainChar::getH() {
 }
 
 void MainChar::crouch() {
-	this->c = .1;
+	is_crouch = !is_crouch;
+	if (is_crouch)
+		c = .1;
+	else
+		c = 0;
 	cout << "crouch" << endl;
 }
 void MainChar::setY(float y) {
