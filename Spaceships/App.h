@@ -54,7 +54,7 @@ public:
 	void keyPress(unsigned char key);
 	void idle();
 	float enemyCreation();
-	void displayMapInfo();
+	void displayScoreInfo();
 	void RenderString(GLdouble x, GLdouble y, const std::string &string);
 	void increaseSpeed();
 	//void replay();

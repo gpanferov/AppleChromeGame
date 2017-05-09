@@ -28,7 +28,7 @@ void App::replay() {
 }
 */
 
-void App::displayMapInfo() {
+void App::displayScoreInfo() {
 	string a = ("The score is: " + to_string(score));
 	RenderString(-.2, .8, a);
 }
@@ -54,6 +54,7 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 		android[i] = loadTexture(N);
 	}
 	crashImg = loadTexture("..\\crash_img.bmp");
+	startImg = loadTexture("..\\startup_screen.bmp");
 	//windowsImg = loadTexture("..\\windows_xp.bmp");
 #else
 	characterImg = loadTexture("apple.bmp");
@@ -132,8 +133,9 @@ void App::draw() {
 	if (!gameplay) {
 		cd->draw();
 	}
-
-	//ss->draw();
+	if (!loop && gameplay) {
+		ss->draw();
+	}
 	//wb->draw();
 
 	//draws the beginning piece
@@ -142,12 +144,8 @@ void App::draw() {
 	for (int i = 0; i < 4; i++) {
 		enemies[i]->draw();
 	}
-	displayMapInfo();
+	displayScoreInfo();
 		
-	/*for (int i = 0; i < enemies.size(); i++) {
-		enemies[i]->draw();
-	}
-	*/
 	
 	//glColor3f(1.0, 1.0, 1.0);
 	//glBindTexture(GL_TEXTURE_2D, characterImg);
