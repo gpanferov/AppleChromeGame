@@ -16,6 +16,8 @@
 		BFB11BA31EC1967600411972 /* MainChar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB11B971EC1967500411972 /* MainChar.cpp */; };
 		BFB11BA51EC1967600411972 /* RgbImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB11B9B1EC1967500411972 /* RgbImage.cpp */; };
 		BFB11BA61EC1967600411972 /* TexRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFB11B9E1EC1967500411972 /* TexRect.cpp */; };
+		BFE0A71F1EC24B6300BA5A40 /* EnemyChar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFE0A71D1EC24B6300BA5A40 /* EnemyChar.cpp */; };
+		BFE0A7221EC24BAA00BA5A40 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFE0A7201EC24BAA00BA5A40 /* Image.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +49,26 @@
 		BFB11B9C1EC1967500411972 /* RgbImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RgbImage.h; sourceTree = "<group>"; };
 		BFB11B9E1EC1967500411972 /* TexRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TexRect.cpp; sourceTree = "<group>"; };
 		BFB11B9F1EC1967600411972 /* TexRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TexRect.h; sourceTree = "<group>"; };
+		BFE0A71D1EC24B6300BA5A40 /* EnemyChar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyChar.cpp; sourceTree = "<group>"; };
+		BFE0A71E1EC24B6300BA5A40 /* EnemyChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyChar.h; sourceTree = "<group>"; };
+		BFE0A7201EC24BAA00BA5A40 /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
+		BFE0A7211EC24BAA00BA5A40 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		BFE0A7231EC24C6C00BA5A40 /* flying_android_0.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_0.bmp; sourceTree = "<group>"; };
+		BFE0A7241EC24C6C00BA5A40 /* flying_android_1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_1.bmp; sourceTree = "<group>"; };
+		BFE0A7251EC24C6C00BA5A40 /* flying_android_2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_2.bmp; sourceTree = "<group>"; };
+		BFE0A7261EC24C6C00BA5A40 /* flying_android_3.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_3.bmp; sourceTree = "<group>"; };
+		BFE0A7271EC24C6C00BA5A40 /* flying_android_4.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_4.bmp; sourceTree = "<group>"; };
+		BFE0A7281EC24C6C00BA5A40 /* flying_android_5.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_5.bmp; sourceTree = "<group>"; };
+		BFE0A7291EC24C6C00BA5A40 /* flying_android_6.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_6.bmp; sourceTree = "<group>"; };
+		BFE0A72A1EC24C6C00BA5A40 /* flying_android_7.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_7.bmp; sourceTree = "<group>"; };
+		BFE0A72B1EC24C6C00BA5A40 /* flying_android_8.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_8.bmp; sourceTree = "<group>"; };
+		BFE0A72C1EC24C6C00BA5A40 /* flying_android_9.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_9.bmp; sourceTree = "<group>"; };
+		BFE0A72D1EC24C6C00BA5A40 /* flying_android_10.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_10.bmp; sourceTree = "<group>"; };
+		BFE0A72E1EC24C6C00BA5A40 /* flying_android_11.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = flying_android_11.bmp; sourceTree = "<group>"; };
+		BFE0A72F1EC24C8100BA5A40 /* apple.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = apple.bmp; sourceTree = "<group>"; };
+		BFE0A7301EC24C8100BA5A40 /* crash_img.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = crash_img.bmp; sourceTree = "<group>"; };
+		BFE0A7311EC24C8100BA5A40 /* startup_screen.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = startup_screen.bmp; sourceTree = "<group>"; };
+		BFE0A7321EC24C8100BA5A40 /* windows.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = windows.bmp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +94,10 @@
 				BFB11B961EC1967500411972 /* AndroidChar.h */,
 				BFB11B971EC1967500411972 /* MainChar.cpp */,
 				BFB11B981EC1967500411972 /* MainChar.h */,
+				BFE0A71D1EC24B6300BA5A40 /* EnemyChar.cpp */,
+				BFE0A71E1EC24B6300BA5A40 /* EnemyChar.h */,
+				BFE0A7201EC24BAA00BA5A40 /* Image.cpp */,
+				BFE0A7211EC24BAA00BA5A40 /* Image.h */,
 				BFB11B9B1EC1967500411972 /* RgbImage.cpp */,
 				BFB11B9C1EC1967500411972 /* RgbImage.h */,
 				BFB11B9E1EC1967500411972 /* TexRect.cpp */,
@@ -80,6 +106,22 @@
 				1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */,
 				1799B7E41E5E3A83006D7CBD /* GlutApp.h */,
 				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
+				BFE0A7231EC24C6C00BA5A40 /* flying_android_0.bmp */,
+				BFE0A7241EC24C6C00BA5A40 /* flying_android_1.bmp */,
+				BFE0A7251EC24C6C00BA5A40 /* flying_android_2.bmp */,
+				BFE0A7261EC24C6C00BA5A40 /* flying_android_3.bmp */,
+				BFE0A7271EC24C6C00BA5A40 /* flying_android_4.bmp */,
+				BFE0A7281EC24C6C00BA5A40 /* flying_android_5.bmp */,
+				BFE0A7291EC24C6C00BA5A40 /* flying_android_6.bmp */,
+				BFE0A72A1EC24C6C00BA5A40 /* flying_android_7.bmp */,
+				BFE0A72B1EC24C6C00BA5A40 /* flying_android_8.bmp */,
+				BFE0A72C1EC24C6C00BA5A40 /* flying_android_9.bmp */,
+				BFE0A72D1EC24C6C00BA5A40 /* flying_android_10.bmp */,
+				BFE0A72E1EC24C6C00BA5A40 /* flying_android_11.bmp */,
+				BFE0A72F1EC24C8100BA5A40 /* apple.bmp */,
+				BFE0A7301EC24C8100BA5A40 /* crash_img.bmp */,
+				BFE0A7311EC24C8100BA5A40 /* startup_screen.bmp */,
+				BFE0A7321EC24C8100BA5A40 /* windows.bmp */,
 				173FEF021AA63A07006CCB85 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,9 +192,11 @@
 			files = (
 				1799B7E81E5ECD67006D7CBD /* App.cpp in Sources */,
 				BFB11BA51EC1967600411972 /* RgbImage.cpp in Sources */,
+				BFE0A71F1EC24B6300BA5A40 /* EnemyChar.cpp in Sources */,
 				BFB11BA61EC1967600411972 /* TexRect.cpp in Sources */,
 				173FEF0C1AA63AC4006CCB85 /* app_main.cpp in Sources */,
 				BFB11BA31EC1967600411972 /* MainChar.cpp in Sources */,
+				BFE0A7221EC24BAA00BA5A40 /* Image.cpp in Sources */,
 				1799B7E51E5E3A83006D7CBD /* GlutApp.cpp in Sources */,
 				BFB11BA21EC1967600411972 /* AndroidChar.cpp in Sources */,
 			);
