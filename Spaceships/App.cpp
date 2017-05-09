@@ -13,6 +13,7 @@ float App::enemyCreation() {
 }
 
 
+
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
 
 #if defined WIN32
@@ -45,7 +46,13 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	srand(time(NULL));
 	
 
+
 	cd = new Image(0.472, 0.255, 0.472/2.0, 0.255/2.0, crashImg);
+
+	ac = new AndroidChar(1.0, 0.55, android);
+	ec = new EnemyChar(1.0, -.19, enemycharacterImg);
+	cd = new Image(-0.472 * 1.75, 0.255 * 1.75 - 0.05, 0.472 * 3.0, 0.255 * 3.0, crashImg);
+
 	//wb = new Image(-1, -1, 1, 0.1354, windowsImg);
 
 	enemyMove = true;
