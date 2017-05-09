@@ -6,6 +6,7 @@
 
 
 
+
 float App::enemyCreation() {
 	float num = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 	float final_num = 0.5 - num;
@@ -20,6 +21,16 @@ void App::replay() {
 }
 */
 
+void App::drawBitmapText(char *string, float x, float y, float z){
+	char *c;
+	glRasterPos3f(x, y, z);
+	string = to_string(score);
+	for (c = string; *c != a.c_str; c++)
+	{
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, *c);
+	}
+}
+
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
 
 #if defined WIN32
@@ -32,7 +43,6 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 		android[i] = loadTexture(N);
 	}
 	crashImg = loadTexture("..\\crash_img.bmp");
-	startImg = loadTexture("..\\startup_screen.bmp");
 	//windowsImg = loadTexture("..\\windows_xp.bmp");
 #else
 	characterImg = loadTexture("apple.bmp");
@@ -42,8 +52,7 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 		android[i] = loadTexture(name.c_str);
 	}
 	crashImg = loadTexture("crash_img.bmp");
-	startImg = loadTexture("startup_screen.bmp");
-	//windowsImg = loadTexture("windows_xp.bmp");
+	windowsImg = loadTexture("windows_xp.bmp");
 #endif
 	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
@@ -56,9 +65,12 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 
 
 
+<<<<<<< HEAD
+=======
 	ac = new AndroidChar(1.0, 0.55, android);
 	ec = new EnemyChar(1.0, -.19, enemycharacterImg);
 	ss = new Image(-1 - 0.1, 1 - 0.1, 2, 2, startImg);
+>>>>>>> 816d56cf90304b191fd1a90e1561120ad97784eb
 	
 	cd = new Image(-0.472 * 1.75, 0.255 * 1.75 - 0.05, 0.472 * 3.0, 0.255 * 3.0, crashImg);
 
@@ -107,12 +119,15 @@ void App::draw() {
 	// Set up the transformations stack
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
+	drawBitmapText(score, x, y, z);
 	if (!gameplay) {
 		cd->draw();
 	}
+<<<<<<< HEAD
 
 	//ss->draw();
+=======
+>>>>>>> 8daf6b30c088a3e05f0f69a204f5ae22e69e29af
 	//wb->draw();
 
 	//draws the beginning piece
