@@ -1,13 +1,22 @@
 ﻿  App.cpp
-c:\users\mohit\desktop\ucm\cse165_proj\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mohit\desktop\ucm\cse165_proj\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mohit\desktop\ucm\cse165_proj\spaceships\enemychar.h(24): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mohit\desktop\ucm\cse165_proj\spaceships\app.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\desktop\ucm\cse165_proj\spaceships\app.cpp(42): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\desktop\ucm\cse165_proj\spaceships\app.cpp(43): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\desktop\ucm\cse165_proj\spaceships\app.cpp(163): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\desktop\ucm\cse165_proj\spaceships\app.cpp(164): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\desktop\ucm\cse165_proj\spaceships\app.cpp(181): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\desktop\ucm\cse165_proj\spaceships\app.cpp(185): warning C4305: 'argument': truncation from 'double' to 'float'
-  glutapp.vcxproj -> C:\Users\Mohit\Desktop\UCM\CSE165_proj\Spaceships\visualc15\obj\glutapp_Debug\glutapp.exe
+c:\users\mohit\documents\applechromegame\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\enemychar.h(24): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\app.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\app.cpp(42): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\app.cpp(43): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\app.cpp(163): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\app.cpp(164): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\app.cpp(181): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\app.cpp(185): warning C4305: 'argument': truncation from 'double' to 'float'
+  EnemyChar.cpp
+c:\users\mohit\documents\applechromegame\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\enemychar.h(24): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\enemychar.cpp(18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mohit\documents\applechromegame\spaceships\enemychar.cpp(34): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\enemychar.cpp(42): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\mohit\documents\applechromegame\spaceships\enemychar.cpp(50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  glutapp.vcxproj -> C:\Users\Mohit\Documents\AppleChromeGame\Spaceships\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
