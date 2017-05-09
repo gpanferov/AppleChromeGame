@@ -21,7 +21,7 @@ protected:
 	float x = 0;
 	float y = 0;
 	float h = 0.15;
-	float dec = 0.0005;
+	float dec = 0.005;
 	EnemyChar();
 public:
 	// Default constructor

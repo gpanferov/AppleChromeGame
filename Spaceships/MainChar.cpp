@@ -28,11 +28,11 @@ float MainChar::getH() {
 
 
 void MainChar::incrementY() {
-	y += 0.0009;
+	y += 0.009;
 }
 
 void MainChar::decrementY() {
-	y -= 0.0009;
+	y -= 0.009;
 }
 
 void MainChar::draw() {
