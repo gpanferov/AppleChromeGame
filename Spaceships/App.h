@@ -56,6 +56,7 @@ public:
 	float enemyCreation();
 	void displayMapInfo();
 	void RenderString(GLdouble x, GLdouble y, const std::string &string);
+	void increaseSpeed();
 	//void replay();
 	GLuint loadTexture(const char* filename);
 

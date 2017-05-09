@@ -5,7 +5,14 @@
 
 
 
-
+void App::increaseSpeed() {
+	if ((score+1) % 10 == 0) {
+		score++;
+		for (int enemySize = 0; enemySize < enemies.size(); enemySize++) {
+			enemies[enemySize]->changeSpeed();
+		}
+	}
+}
 
 float App::enemyCreation() {
 	float num = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
@@ -229,6 +236,7 @@ void App::idle() {
 			enemies[1]->decrementX();
 			enemies[2]->decrementX();
 			enemies[3]->decrementX();
+			increaseSpeed();
 				float num = enemyCreation();
 				if ((enemies[0]->getX() + enemies[0]->getH()) < -1.5) {
 					diff += num;
