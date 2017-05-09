@@ -39,7 +39,7 @@ void EnemyChar::decrementX() {
 }
 
 void EnemyChar::changeSpeed() {
-	dec += .0004;
+	dec += .04;
 
 }
 
