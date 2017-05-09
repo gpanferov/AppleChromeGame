@@ -39,18 +39,17 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 #endif
 	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
-	enemies.push_back(new AndroidChar(4.5, 0.13, android));
-	enemies.push_back(new AndroidChar(8.5, 0.13, android));
+	enemies.push_back(new AndroidChar(4.0, 0.13, android));
+	enemies.push_back(new AndroidChar(7.0, 0.13, android));
 	enemies.push_back(new EnemyChar(2.5, -.19, enemycharacterImg));
-	enemies.push_back(new EnemyChar(6.5, -.19, enemycharacterImg));
+	enemies.push_back(new EnemyChar(5.5, -.19, enemycharacterImg));
 	srand(time(NULL));
 	
 
 
 	cd = new Image(0.472, 0.255, 0.472/2.0, 0.255/2.0, crashImg);
 
-	ac = new AndroidChar(1.0, 0.55, android);
-	ec = new EnemyChar(1.0, -.19, enemycharacterImg);
+	
 	cd = new Image(-0.472 * 1.75, 0.255 * 1.75 - 0.05, 0.472 * 3.0, 0.255 * 3.0, crashImg);
 
 	//wb = new Image(-1, -1, 1, 0.1354, windowsImg);
@@ -203,7 +202,7 @@ void App::idle() {
 			enemies[1]->decrementX();
 			enemies[2]->decrementX();
 			enemies[3]->decrementX();
-			float num = enemyCreation() + 6.5;
+			float num = enemyCreation() + 6.0;
 			
 			if ((enemies[0]->getX() + enemies[0]->getH()) < -1.5) {
 				enemies[0]->setX(num);

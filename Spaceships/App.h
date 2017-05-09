@@ -16,7 +16,7 @@
 #define MAINCHAR_X -0.8
 #define MAINCHAR_Y -0.13
 #define JUMP_HEIGHT 0.4
-#define RUN_HEIGHT -0.15
+#define RUN_HEIGHT -0.131
 
 using namespace std::this_thread; // sleep_for, sleep_until
 using namespace std::chrono; // nanoseconds, system_clock, seconds
