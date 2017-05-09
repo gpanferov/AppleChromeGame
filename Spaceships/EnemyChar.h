@@ -22,10 +22,12 @@ protected:
 	float y = 0;
 	float h = 0.15;
 	float dec = 0.0005;
+	
 	EnemyChar();
 public:
 	// Default constructor
 	// TODO: Implement a default constructor (AndroidChar won't work without it)
+	bool is_increment = false;
 	EnemyChar(float x, float y, GLuint loadImg);
 	virtual void draw();
 	void incrementX();

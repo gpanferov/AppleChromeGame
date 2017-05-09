@@ -194,7 +194,7 @@ void App::keyPress(unsigned char key) {
 
 	//right key
 	else if (key == 'd') {
-		godMode = !godMode;
+		//godMode = !godMode;
 	}
 
 	//up key
@@ -222,9 +222,8 @@ void App::keyPress(unsigned char key) {
 void App::idle() {
 	// loop should always be true, unless it's game over
 	if (loop) {
-		if (godMode = false) {
+		if (!godMode) {
 			if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
-				cout << "end game" << endl;
 				gameplay = !gameplay;
 				cout << score << endl;
 				loop = !loop;
@@ -237,24 +236,51 @@ void App::idle() {
 			enemies[3]->decrementX();
 			increaseSpeed();
 				float num = enemyCreation() + 7.0;
-				if ((enemies[0]->getX() + enemies[0]->getH()) < -1.5) {
+				if ((enemies[0]->getX() + enemies[0]->getH()) < -1.0) {
 					enemies[0]->setX(num);
-					score++;
+					enemies[0]->is_increment = false;
+					
 				}
-				if ((enemies[1]->getX() + enemies[1]->getH()) < -1.5) {
+				if ((enemies[1]->getX() + enemies[1]->getH()) < -1.0) {
 					enemies[1]->setX(num);
-					score++;
+					enemies[1]->is_increment = false;
 				}
 
-				if ((enemies[2]->getX() + enemies[2]->getH()) < -1.5) {
+				if ((enemies[2]->getX() + enemies[2]->getH()) < -1.3) {
 					enemies[2]->setX(num);
-					score++;
+					enemies[2]->is_increment = false;
 				}
-				if ((enemies[3]->getX() + enemies[3]->getH()) < -1.5) {
+				if ((enemies[3]->getX() + enemies[3]->getH()) < -1.3) {
 					enemies[3]->setX(num);
-					score++;
+					enemies[3]->is_increment = false;
 				}
 				
+				if ((enemies[0]->getX() + enemies[0]->getH()) < -.8 && (enemies[0]->getX() + enemies[0]->getH()) >= -1.0) {
+					if (!(enemies[0]->is_increment)) {
+						score++;
+						enemies[0]->is_increment = true;
+					}
+					
+				}
+				if ((enemies[1]->getX() + enemies[1]->getH()) < -.8 && (enemies[1]->getX() + enemies[1]->getH()) >= -1.0) {
+					if (!(enemies[1]->is_increment)) {
+						score++;
+						enemies[1]->is_increment = true;
+					}
+				}
+
+				if ((enemies[2]->getX() + enemies[2]->getH()) < -.8 && (enemies[2]->getX() + enemies[2]->getH()) >= -1.3) {
+					if (!(enemies[2]->is_increment)) {
+						score++;
+						enemies[2]->is_increment = true;
+					}
+				}
+				if ((enemies[3]->getX() + enemies[3]->getH()) < -.8 && (enemies[3]->getX() + enemies[3]->getH()) >= -1.3) {
+					if (!(enemies[3]->is_increment)) {
+						score++;
+						enemies[3]->is_increment = true;
+					}
+				}
 			
 		}
 		if (jump && !mc->get_is_crouch()) {
