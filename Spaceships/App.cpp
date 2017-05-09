@@ -57,13 +57,15 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	//windowsImg = loadTexture("..\\windows_xp.bmp");
 #else
 	characterImg = loadTexture("apple.bmp");
+    enemycharacterImg = loadTexture("windows.bmp");
 	for (int i = 0; i < 12; i++) {
-		string name = "flying_android_" + i;
-		name += +".bmp";
-		android[i] = loadTexture(name.c_str());
+        string name = "flying_android_" + to_string(i);
+        name += + ".bmp";
+        const char *N = name.c_str();
+        android[i] = loadTexture(N);
 	}
 	crashImg = loadTexture("crash_img.bmp");
-	windowsImg = loadTexture("windows_xp.bmp");
+	//windowsImg = loadTexture("windows_xp.bmp");
 #endif
 	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
