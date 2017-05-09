@@ -207,11 +207,20 @@ void App::keyPress(unsigned char key) {
 	}  
 
 	else if (key == 'f') {
-		gameplay = !gameplay;
-		loop = !loop;
-		//replay();
+		replay();
 	}
 	
+}
+
+void App::replay() {
+	mc->reset(MAINCHAR_X, MAINCHAR_Y);
+	enemies[0]->reset(4.5, 0.133);
+	enemies[1]->reset(8.5, 0.133);
+	enemies[2]->reset(2.5, -.19);
+	enemies[3]->reset(6.5, -.19);
+	srand(time(NULL));
+	gameplay = true;
+	loop = true;
 }
 
 void App::idle() {

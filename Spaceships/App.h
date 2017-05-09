@@ -48,7 +48,9 @@ public:
 	App(const char* label, int x, int y, int w, int h);
 	void draw();
 	void keyPress(unsigned char key);
+	void replay();
 	void idle();
+
 	float enemyCreation();
 	void displayScoreInfo();
 	void displayTitleInfo();

@@ -34,6 +34,7 @@ public:
 	float getY();
 	float getX();
 	float getH();
+	void reset(float x, float y);
 
 	void crouch();
 	void setY(float y);

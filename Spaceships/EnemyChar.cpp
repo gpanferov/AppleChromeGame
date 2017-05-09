@@ -66,6 +66,11 @@ bool EnemyChar::contains(MainChar * mc) {
 		return false;
 }
 
+void EnemyChar::reset(float x, float y) {
+	this->x = x;
+	this->y = y;
+}
+
 EnemyChar::~EnemyChar() {
 	delete characterBack;
 }

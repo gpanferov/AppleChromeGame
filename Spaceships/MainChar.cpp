@@ -62,6 +62,11 @@ void MainChar::draw() {
 	characterBack->draw();
 }
 
+void MainChar::reset(float x, float y) {
+	this->x = x;
+	this->y = y;
+}
+
 MainChar::~MainChar() {
 	delete characterBack;
 }

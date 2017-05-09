@@ -40,6 +40,7 @@ public:
 	float getH();
 	void changeSpeed();
 	bool is_increment = false;
+	void reset(float x, float y);
 	
 	virtual bool contains(MainChar * mc);
 
