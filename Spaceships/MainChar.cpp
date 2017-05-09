@@ -25,21 +25,13 @@ float MainChar::getX() {
 float MainChar::getH() {
 	return h;
 }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> refs/remotes/origin/master
 void MainChar::crouch() {
 	this->c = .1;
 	cout << "crouch" << endl;
 }
 void MainChar::setY(float y) {
 	this->y = y;
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/master
 }
 
 void MainChar::incrementY() {
