@@ -28,6 +28,7 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	startImg = loadTexture("startup_screen.bmp");
 #endif
 	
+	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
 	enemies.push_back(new AndroidChar(4.5, 0.133, android));
 	enemies.push_back(new AndroidChar(8.5, 0.133, android));
@@ -39,6 +40,8 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	cd = new Image(-0.472 * 1.75, 0.255 * 1.75 - 0.05, 0.472 * 3.0, 0.255 * 3.0, crashImg);
 
 	enemyMove = true;
+	
+	PlaySound("..\\Mac_Startup.wav", NULL, SND_FILENAME);
 }
 
 //This function is to increase the speed as the score increases
@@ -124,6 +127,7 @@ void App::draw() {
 	// Set up the transformations stack
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+	
 	if (!gameplay) {
 		cd->draw();
 	}
