@@ -27,8 +27,9 @@ protected:
 public:
 	// Default constructor
 	// TODO: Implement a default constructor (AndroidChar won't work without it)
-	bool is_increment = false;
 	EnemyChar(float x, float y, GLuint loadImg);
+	virtual ~EnemyChar();
+
 	virtual void draw();
 	void incrementX();
 	void decrementX();
@@ -36,6 +37,7 @@ public:
 	void setX(float x);
 	float getH();
 	void changeSpeed();
+	bool is_increment = false;
 	
 	virtual bool contains(MainChar * mc);
 

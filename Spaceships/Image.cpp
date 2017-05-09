@@ -23,3 +23,7 @@ void Image::draw() {
 	glBindTexture(GL_TEXTURE_2D, img);
 	back->draw();
 }
+
+Image::~Image() {
+	delete back;
+}

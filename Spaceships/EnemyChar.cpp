@@ -69,3 +69,7 @@ bool EnemyChar::contains(MainChar * mc) {
 	}
 		return false;
 }
+
+EnemyChar::~EnemyChar() {
+	delete characterBack;
+}

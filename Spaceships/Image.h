@@ -18,6 +18,8 @@ class Image {
 	float h = 0.255;
 public:
 	Image(float x, float y, float w, float h, GLuint loadImg);
+	~Image();
+	
 	void draw();
 
 	GLuint img;

@@ -62,3 +62,7 @@ void MainChar::draw() {
 	glBindTexture(GL_TEXTURE_2D, characterImg);
 	characterBack->draw();
 }
+
+MainChar::~MainChar() {
+	delete characterBack;
+}

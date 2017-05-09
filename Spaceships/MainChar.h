@@ -26,6 +26,8 @@ class MainChar {
 public:
 	// Default constructor
 	MainChar(float x, float y, GLuint loadImg);
+	~MainChar();
+
 	void draw();
 	void incrementY();
 	void decrementY();

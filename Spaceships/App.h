@@ -1,12 +1,12 @@
 #ifndef App_h
 #define App_h
 
-#include <iostream> 
+#include <iostream>
 #include "GlutApp.h"
 #include "TexRect.h"
 #include <math.h>
 #include <string>
-#include <deque>
+#include <vector>
 #include <chrono>
 #include "MainChar.h"
 #include "AndroidChar.h"
@@ -36,20 +36,16 @@ class App : public GlutApp {
 	bool crouch = false;
 	bool isDown = false;
 	bool godMode = false;
-	
+
 
 public:
-	deque<EnemyChar*> enemies;
+	vector<EnemyChar*> enemies;
 	MainChar *mc;
-	AndroidChar *ac;
-	AndroidChar *ac1;
-	EnemyChar *ec;
-	EnemyChar *ec1;
 	Image *cd; // CrashDialog
 	Image *ss;
 	//Image *wb; // WindowsBack
 	// Constructor, to initialize state
-	App(const char* label, int x, int y, int w, int h); 
+	App(const char* label, int x, int y, int w, int h);
 	void draw();
 	void keyPress(unsigned char key);
 	void idle();
