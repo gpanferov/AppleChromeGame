@@ -50,6 +50,10 @@ void MainChar::decrementY() {
 	y -= 0.0007;
 }
 
+bool MainChar::get_is_crouch() {
+	return is_crouch;
+}
+
 void MainChar::draw() {
 	delete characterBack;
 	characterBack = new TexRect(x + 0.1, y + 0.1, h, (h-c));

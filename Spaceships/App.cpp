@@ -14,7 +14,6 @@ float App::enemyCreation() {
 
 
 
-
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
 
 #if defined WIN32
@@ -40,14 +39,13 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 #endif
 	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
-	enemies.push_back(new AndroidChar(4.5, 0.55, android));
-	enemies.push_back(new AndroidChar(8.5, 0.55, android));
+	enemies.push_back(new AndroidChar(4.5, 0.13, android));
+	enemies.push_back(new AndroidChar(8.5, 0.13, android));
 	enemies.push_back(new EnemyChar(2.5, -.19, enemycharacterImg));
 	enemies.push_back(new EnemyChar(6.5, -.19, enemycharacterImg));
 	srand(time(NULL));
 	
-	ac = new AndroidChar(1.0, 0.55, android);
-	ec = new EnemyChar(1.0, -.19, enemycharacterImg);
+
 	cd = new Image(0.472, 0.255, 0.472/2.0, 0.255/2.0, crashImg);
 	//wb = new Image(-1, -1, 1, 0.1354, windowsImg);
 
@@ -171,6 +169,8 @@ void App::keyPress(unsigned char key) {
 
 	//down key
 	else if (key == 's') {
+		
+		if(!jump)
 		mc->crouch();
 	}
 
@@ -180,13 +180,15 @@ void App::keyPress(unsigned char key) {
 		//ac->setX(1.1);
 		//loop = true;
 	}
+	
 }
+
 
 void App::idle() {
 	// loop should always be true, unless it's game over
 	if (loop) {
 		
-		if (enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
+		if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
 			cout << "end game" << endl;
 			loop = false;
 		}
@@ -215,7 +217,7 @@ void App::idle() {
 				cout << num << endl;
 			}
 		}
-		if (jump) {
+		if (jump && !mc->get_is_crouch()) {
 			float tmp_y = mc->getY();
 			//cout << tmp_y << ", " << top_of_jump << endl;
 			if (tmp_y >= JUMP_HEIGHT) {

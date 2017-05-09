@@ -160,6 +160,7 @@ void GlutApp::keyboardCB(unsigned char key, int x, int y){
     app->keyPress(key);
 }
 
+
 void GlutApp::specialCB(int key, int x, int y){
     // When a special key is pressed, call our handler for special keys
     app->specialKeyPress(key);

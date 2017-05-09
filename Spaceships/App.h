@@ -35,6 +35,7 @@ class App : public GlutApp {
 	bool loop = true;
 	bool crouch = false;
 	bool isDown = false;
+	
 
 public:
 	deque<EnemyChar*> enemies;
@@ -49,6 +50,7 @@ public:
 	App(const char* label, int x, int y, int w, int h); 
 	void draw();
 	void keyPress(unsigned char key);
+	void keyUp(char key, int x, int y);
 	void idle();
 	float enemyCreation();
 	GLuint loadTexture(const char* filename);

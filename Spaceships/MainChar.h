@@ -21,6 +21,7 @@ class MainChar {
 	float h = 0.2;
 	float c = 0.0;
 	bool is_crouch = false;
+	
 
 public:
 	// Default constructor
@@ -31,7 +32,8 @@ public:
 	float getY();
 	float getX();
 	float getH();
-	
+	bool get_is_crouch();
+
 	void crouch();
 	void setY(float y);
 

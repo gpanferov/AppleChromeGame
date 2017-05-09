@@ -35,7 +35,7 @@ public:
 	float getH();
 	void changeSpeed();
 	
-	bool contains(MainChar * mc);
+	virtual bool contains(MainChar * mc);
 
 	GLuint characterImg;
 	TexRect *characterBack;
