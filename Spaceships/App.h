@@ -10,7 +10,7 @@
 #include <chrono>
 #include "MainChar.h"
 #include "AndroidChar.h"
-#include "CrashDialog.h"
+#include "Image.h"
 
 #define MAINCHAR_X -0.8
 #define MAINCHAR_Y -0.13
@@ -39,7 +39,8 @@ public:
 	MainChar *mc;
 	AndroidChar *ac;
 	EnemyChar *ec;
-	CrashDialog *cd;
+	Image *cd; // CrashDialog
+	//Image *wb; // WindowsBack
 	// Constructor, to initialize state
 	App(const char* label, int x, int y, int w, int h); 
 	void draw();
@@ -52,6 +53,7 @@ public:
 	GLuint enemycharacterImg;
 	GLuint android[12];
 	GLuint crashImg;
+	//GLuint windowsImg;
 
 	~App();
 };

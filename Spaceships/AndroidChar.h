@@ -14,7 +14,7 @@
 class AndroidChar : public EnemyChar {
 	int animateCount = 0;
 public:
-	AndroidChar(float x, float y, GLuint loadImg []);
+	AndroidChar(float x, float y, GLuint loadImg [12]);
 	void draw();
 
 	GLuint androidImg[12];

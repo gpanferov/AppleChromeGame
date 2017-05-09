@@ -117,9 +117,9 @@
     <ClCompile Include="..\AndroidChar.cpp" />
     <ClCompile Include="..\App.cpp" />
     <ClCompile Include="..\app_main.cpp" />
-    <ClCompile Include="..\CrashDialog.cpp" />
     <ClCompile Include="..\EnemyChar.cpp" />
     <ClCompile Include="..\GlutApp.cpp" />
+    <ClCompile Include="..\Image.cpp" />
     <ClCompile Include="..\MainChar.cpp" />
     <ClCompile Include="..\Rectangle1.cpp" />
     <ClCompile Include="..\RgbImage.cpp" />
@@ -128,9 +128,9 @@
   <ItemGroup>
     <ClInclude Include="..\AndroidChar.h" />
     <ClInclude Include="..\App.h" />
-    <ClInclude Include="..\CrashDialog.h" />
     <ClInclude Include="..\EnemyChar.h" />
     <ClInclude Include="..\GlutApp.h" />
+    <ClInclude Include="..\Image.h" />
     <ClInclude Include="..\MainChar.h" />
     <ClInclude Include="..\Rectangle1.h" />
     <ClInclude Include="..\RgbImage.h" />
