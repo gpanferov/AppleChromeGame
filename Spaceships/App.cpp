@@ -11,8 +11,14 @@ float App::enemyCreation() {
 	float final_num = 0.5 - num;
 	return final_num;
 }
-
-
+/*
+void App::replay() {
+	enemies[2]->setX(2.5);
+	enemies[0]->setX(4.0);
+	enemies[3]->setX(5.5);
+	enemies[3]->setX(7.0);
+}
+*/
 
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
 
@@ -41,20 +47,26 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 #endif
 	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
-	enemies.push_back(new AndroidChar(4.5, 0.13, android));
-	enemies.push_back(new AndroidChar(8.5, 0.13, android));
+	enemies.push_back(new AndroidChar(4.0, 0.13, android));
+	enemies.push_back(new AndroidChar(7.0, 0.13, android));
 	enemies.push_back(new EnemyChar(2.5, -.19, enemycharacterImg));
-	enemies.push_back(new EnemyChar(6.5, -.19, enemycharacterImg));
+	enemies.push_back(new EnemyChar(5.5, -.19, enemycharacterImg));
 	srand(time(NULL));
 	
 
 
 	cd = new Image(0.472, 0.255, 0.472/2.0, 0.255/2.0, crashImg);
 
+<<<<<<< HEAD
 	ac = new AndroidChar(1.0, 0.55, android);
 	ec = new EnemyChar(1.0, -.19, enemycharacterImg);
 	cd = new Image(-0.472 * 1.75, 0.255 * 1.75, 0.472 * 3.0, 0.255 * 3.0, crashImg);
 	ss = new Image(-1 - 0.1, 1 - 0.1, 2, 2, startImg);
+=======
+	
+	cd = new Image(-0.472 * 1.75, 0.255 * 1.75 - 0.05, 0.472 * 3.0, 0.255 * 3.0, crashImg);
+
+>>>>>>> f43ac78527be7a40652d6f259256613d023feef7
 	//wb = new Image(-1, -1, 1, 0.1354, windowsImg);
 
 	enemyMove = true;
@@ -101,7 +113,7 @@ void App::draw() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	if (!loop) {
+	if (!gameplay) {
 		cd->draw();
 	}
 
@@ -161,8 +173,7 @@ void App::keyPress(unsigned char key) {
 	}
 	//13 is for the enter key "press enter if you would like to start the game"
 	else if (key == 13) {
-		//	main_char->draw()
-		//gameStart = !gameStart
+		loop = true;
 		
 	}
 
@@ -183,16 +194,17 @@ void App::keyPress(unsigned char key) {
 
 	//down key
 	else if (key == 's') {
-		crouch = true;
-		if(!jump)
-		mc->crouch();
-	}
+		if (loop) {
+			crouch = !crouch;
+			if (!jump)
+				mc->crouch();
+		}
+	}  
 
 	else if (key == 'f') {
-		
-		//ec->setX(1.1);
-		//ac->setX(1.1);
-		//loop = true;
+		gameplay = !gameplay;
+		loop = !loop;
+		//replay();
 	}
 	
 }
@@ -204,31 +216,33 @@ void App::idle() {
 		
 		if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
 			cout << "end game" << endl;
-			loop = false;
+			gameplay = !gameplay;
+			cout << score << endl;
+			loop = !loop;
 		}
 		if (enemyMove) {//this is to make the enemy move from right to left
 			enemies[0]->decrementX();
 			enemies[1]->decrementX();
 			enemies[2]->decrementX();
 			enemies[3]->decrementX();
-			float num = enemyCreation() + 6.5;
+			float num = enemyCreation() + 6.0;
 			
 			if ((enemies[0]->getX() + enemies[0]->getH()) < -1.5) {
 				enemies[0]->setX(num);
-				cout << num << endl;
+				score++;
 			}
 			if ((enemies[1]->getX() + enemies[1]->getH()) < -1.5) {
 				enemies[1]->setX(num);
-				cout << num << endl;
+				score++;
 			}
 		
 			if ((enemies[2]->getX() + enemies[2]->getH()) < -1.5) {
 				enemies[2]->setX(num);
-				cout << num << endl;
+				score++;
 			}
 			if ((enemies[3]->getX() + enemies[3]->getH()) < -1.5) {
 				enemies[3]->setX(num);
-				cout << num << endl;
+				score++;
 			}
 		}
 		if (jump && !mc->get_is_crouch()) {
@@ -255,11 +269,7 @@ void App::idle() {
 
 		}
 
-		if (gameover) {
-			// Stop looping, otherwise final message will be displayed many times
-			loop = false;
-		}
-
+		
 		// Redraw the scene after all modifications have been made
 		//sleep_for(nanoseconds(1000));
 		redraw();
