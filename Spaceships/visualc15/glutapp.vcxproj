@@ -117,6 +117,7 @@
     <ClCompile Include="..\AndroidChar.cpp" />
     <ClCompile Include="..\App.cpp" />
     <ClCompile Include="..\app_main.cpp" />
+    <ClCompile Include="..\CrashDialog.cpp" />
     <ClCompile Include="..\EnemyChar.cpp" />
     <ClCompile Include="..\GlutApp.cpp" />
     <ClCompile Include="..\MainChar.cpp" />
@@ -127,6 +128,7 @@
   <ItemGroup>
     <ClInclude Include="..\AndroidChar.h" />
     <ClInclude Include="..\App.h" />
+    <ClInclude Include="..\CrashDialog.h" />
     <ClInclude Include="..\EnemyChar.h" />
     <ClInclude Include="..\GlutApp.h" />
     <ClInclude Include="..\MainChar.h" />
