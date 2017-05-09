@@ -25,7 +25,9 @@ float MainChar::getX() {
 float MainChar::getH() {
 	return h;
 }
-
+void MainChar::setY(float y) {
+	this->y = y;
+}
 
 void MainChar::incrementY() {
 	y += 0.009;

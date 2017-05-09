@@ -10,6 +10,7 @@
 #include <chrono>
 #include "MainChar.h"
 #include "AndroidChar.h"
+#include "CrashDialog.h"
 
 #define MAINCHAR_X -0.8
 #define MAINCHAR_Y -0.13
@@ -35,7 +36,8 @@ class App : public GlutApp {
 public:
 	MainChar *mc;
 	AndroidChar *ac;
-	EnemyChar * ec;
+	EnemyChar *ec;
+	CrashDialog *cd;
 	// Constructor, to initialize state
 	App(const char* label, int x, int y, int w, int h); 
 	void draw();
@@ -47,10 +49,7 @@ public:
 	GLuint characterImg;
 	GLuint enemycharacterImg;
 	GLuint android[12];
-	GLuint wall;
-
-	TexRect* characterBack;
-	TexRect* background;
+	GLuint crashImg;
 
 	~App();
 };

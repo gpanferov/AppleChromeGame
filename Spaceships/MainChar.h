@@ -29,6 +29,7 @@ public:
 	float getY();
 	float getX();
 	float getH();
+	void setY(float y);
 	
 	GLuint characterImg;
 	TexRect *characterBack;

@@ -30,6 +30,7 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 		const char *N = name.c_str();
 		android[i] = loadTexture(N);
 	}
+	crashImg = loadTexture("..\\crash_img.bmp");
 #else
 	characterImg = loadTexture("apple.bmp");
 	for (int i = 0; i < 12; i++) {
@@ -41,6 +42,7 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
 	ac = new AndroidChar(1.0, 0.55, android);
 	ec = new EnemyChar(1.0, -.19, enemycharacterImg);
+	cd = new CrashDialog(crashImg);
 	enemyMove = true;
 	//characterBack = new TexRect(MAINCHAR_X + 0.1, MAINCHAR_Y + 0.1, 0.2, 0.2);
 }
@@ -85,11 +87,13 @@ void App::draw() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+	if (!loop) {
+		cd->draw();
+	}
 
 	//draws the beginning piece
-	
-	mc->draw();
 
+	mc->draw();
 	ac->draw();
 	ec->draw();
 		
@@ -190,10 +194,12 @@ void App::idle() {
 			//cout << tmp_y << ", " << top_of_jump << endl;
 			if (tmp_y >= JUMP_HEIGHT) {
 				top_of_jump = true;
+				mc->setY(JUMP_HEIGHT);
 				//cout << "TOP" << endl;
 			} else if (tmp_y <= RUN_HEIGHT) {
 				top_of_jump = false;
 				jump = false;
+				mc->setY(RUN_HEIGHT);
 				//cout << "BOTTOM" << endl;
 			}
 			if (!top_of_jump && tmp_y <= JUMP_HEIGHT) {
