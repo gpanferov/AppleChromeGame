@@ -30,6 +30,7 @@ public:
 	float getY();
 	float getX();
 	float getH();
+<<<<<<< HEAD
 
 	void crouch();
 
@@ -37,6 +38,10 @@ public:
 
 	void setY(float y);
 	
+=======
+	void crouch();
+	void setY(float y);
+>>>>>>> refs/remotes/origin/master
 
 	GLuint characterImg;
 	TexRect *characterBack;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  App.cpp
 c:\users\mohit\documents\applechromegame\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\mohit\documents\applechromegame\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
@@ -18,3 +19,7 @@ c:\users\mohit\documents\applechromegame\spaceships\app.cpp(222): warning C4305:
 c:\users\mohit\documents\applechromegame\spaceships\app.cpp(227): warning C4305: 'argument': truncation from 'double' to 'float'
   glutapp.vcxproj -> C:\Users\Mohit\Documents\AppleChromeGame\Spaceships\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
+=======
+﻿  glutapp.vcxproj -> D:\Users\iRuss\Documents\AppleChromeGame\Spaceships\visualc15\obj\glutapp_Debug\glutapp.exe
+  glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
+>>>>>>> refs/remotes/origin/master

@@ -10,8 +10,12 @@
 #include <chrono>
 #include "MainChar.h"
 #include "AndroidChar.h"
+<<<<<<< HEAD
 #include "CrashDialog.h"
 #include <ctime>
+=======
+#include "Image.h"
+>>>>>>> refs/remotes/origin/master
 
 #define MAINCHAR_X -0.8
 #define MAINCHAR_Y -0.13
@@ -42,8 +46,13 @@ public:
 	AndroidChar *ac;
 	AndroidChar *ac1;
 	EnemyChar *ec;
+<<<<<<< HEAD
 	EnemyChar *ec1;
 	CrashDialog *cd;
+=======
+	Image *cd; // CrashDialog
+	//Image *wb; // WindowsBack
+>>>>>>> refs/remotes/origin/master
 	// Constructor, to initialize state
 	App(const char* label, int x, int y, int w, int h); 
 	void draw();
@@ -56,6 +65,7 @@ public:
 	GLuint enemycharacterImg;
 	GLuint android[12];
 	GLuint crashImg;
+	//GLuint windowsImg;
 
 	~App();
 };

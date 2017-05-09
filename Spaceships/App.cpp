@@ -28,6 +28,7 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 		android[i] = loadTexture(N);
 	}
 	crashImg = loadTexture("..\\crash_img.bmp");
+	//windowsImg = loadTexture("..\\windows_xp.bmp");
 #else
 	characterImg = loadTexture("apple.bmp");
 	for (int i = 0; i < 12; i++) {
@@ -36,9 +37,11 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 		android[i] = loadTexture(name.c_str);
 	}
 	crashImg = loadTexture("crash_img.bmp");
+	windowsImg = loadTexture("windows_xp.bmp");
 #endif
 	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
+<<<<<<< HEAD
 	enemies.push_back(new AndroidChar(4.5, 0.55, android));
 	enemies.push_back(new AndroidChar(8.5, 0.55, android));
 	enemies.push_back(new EnemyChar(2.5, -.19, enemycharacterImg));
@@ -46,6 +49,13 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	cd = new CrashDialog(crashImg);
 	srand(time(NULL));
 	
+=======
+	ac = new AndroidChar(1.0, 0.55, android);
+	ec = new EnemyChar(1.0, -.19, enemycharacterImg);
+	cd = new Image(0.472, 0.255, 0.472/2.0, 0.255/2.0, crashImg);
+	//wb = new Image(-1, -1, 1, 0.1354, windowsImg);
+
+>>>>>>> refs/remotes/origin/master
 	enemyMove = true;
 	//characterBack = new TexRect(MAINCHAR_X + 0.1, MAINCHAR_Y + 0.1, 0.2, 0.2);
 }
@@ -93,6 +103,7 @@ void App::draw() {
 	if (!loop) {
 		cd->draw();
 	}
+	//wb->draw();
 
 	//draws the beginning piece
 
