@@ -212,7 +212,7 @@ void App::keyPress(unsigned char key) {
 	
 }
 
-
+float diff = 6.5;
 void App::idle() {
 	// loop should always be true, unless it's game over
 	if (loop) {
@@ -229,22 +229,30 @@ void App::idle() {
 			enemies[1]->decrementX();
 			enemies[2]->decrementX();
 			enemies[3]->decrementX();
-				float num = enemyCreation() + 7.0;
+				float num = enemyCreation();
 				if ((enemies[0]->getX() + enemies[0]->getH()) < -1.5) {
-					enemies[0]->setX(num);
+					diff += num;
+					enemies[0]->setX(diff);
+					diff = enemies[0]->getX();
 					score++;
 				}
 				if ((enemies[1]->getX() + enemies[1]->getH()) < -1.5) {
-					enemies[1]->setX(num);
+					diff += num;
+					enemies[1]->setX(diff);
+					diff = enemies[1]->getX();
 					score++;
 				}
 
 				if ((enemies[2]->getX() + enemies[2]->getH()) < -1.5) {
-					enemies[2]->setX(num);
+					diff += num;
+					enemies[2]->setX(diff);
+					diff = enemies[2]->getX();
 					score++;
 				}
 				if ((enemies[3]->getX() + enemies[3]->getH()) < -1.5) {
-					enemies[3]->setX(num);
+					diff += num;
+					enemies[3]->setX(diff);
+					diff = enemies[3]->getX();
 					score++;
 				}
 				
