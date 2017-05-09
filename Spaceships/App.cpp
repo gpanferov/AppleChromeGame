@@ -162,8 +162,6 @@ void App::keyPress(unsigned char key) {
 	}
 	//13 is for the enter key "press enter if you would like to start the game"
 	else if (key == 13) {
-		//	main_char->draw()
-		//gameStart = !gameStart
 		loop = true;
 		
 	}
@@ -185,9 +183,11 @@ void App::keyPress(unsigned char key) {
 
 	//down key
 	else if (key == 's') {
-		crouch = !crouch;
-		if(!jump)
-		mc->crouch();
+		if (loop) {
+			crouch = !crouch;
+			if (!jump)
+				mc->crouch();
+		}
 	}  
 
 	else if (key == 'f') {
@@ -206,6 +206,7 @@ void App::idle() {
 		if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
 			cout << "end game" << endl;
 			gameplay = !gameplay;
+			cout << score << endl;
 			loop = !loop;
 		}
 		if (enemyMove) {//this is to make the enemy move from right to left
@@ -217,20 +218,20 @@ void App::idle() {
 			
 			if ((enemies[0]->getX() + enemies[0]->getH()) < -1.5) {
 				enemies[0]->setX(num);
-				cout << num << endl;
+				score++;
 			}
 			if ((enemies[1]->getX() + enemies[1]->getH()) < -1.5) {
 				enemies[1]->setX(num);
-				cout << num << endl;
+				score++;
 			}
 		
 			if ((enemies[2]->getX() + enemies[2]->getH()) < -1.5) {
 				enemies[2]->setX(num);
-				cout << num << endl;
+				score++;
 			}
 			if ((enemies[3]->getX() + enemies[3]->getH()) < -1.5) {
 				enemies[3]->setX(num);
-				cout << num << endl;
+				score++;
 			}
 		}
 		if (jump && !mc->get_is_crouch()) {

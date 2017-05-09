@@ -29,7 +29,7 @@ class App : public GlutApp {
 	bool move;
 	bool jump = false;
 	bool top_of_jump = false;
-	int score;
+	int score = 0;
 	bool enemyMove = false;
 	bool gameplay = true;
 	bool loop = false;
