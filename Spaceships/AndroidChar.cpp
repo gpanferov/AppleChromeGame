@@ -3,9 +3,10 @@
 using namespace std;
 
 
-AndroidChar::AndroidChar(float x, float y, GLuint loadImg [12]) {
+AndroidChar::AndroidChar(float x, float y, float boundry ,GLuint loadImg [12]) {
 	this->x = x;
 	this->y = y;
+	this->boundry = boundry;
 	w = .322;
 	h = .480;
 

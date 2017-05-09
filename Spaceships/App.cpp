@@ -187,7 +187,7 @@ void App::keyPress(unsigned char key) {
 
 	//right key
 	else if (key == 'd') {
-		//godMode = !godMode;
+		godMode = !godMode;
 	}
 
 	//up key
@@ -237,13 +237,17 @@ void App::idle() {
 			enemies[2]->decrementX();
 			enemies[3]->decrementX();
 			increaseSpeed();
-            float num = enemyCreation() + 7.0;
+            float num = enemyCreation() + 6.5;
             for (int i = 0; i < enemies.size(); i++){
                 if ((enemies[i]->getX() + enemies[i]->getH()) < enemies[i]->getBoundry()) {
                     enemies[i]->setX(num);
                     enemies[i]->is_increment = false;
                     if (i == 3) {
-                        random_shuffle(enemies.begin(), enemies.end());
+						srand(time(0));
+						cout << "rand shuff" << endl;
+						auto engine = default_random_engine{};
+						shuffle(enemies.begin(), enemies.end(), engine);
+						//random_shuffle(enemies.begin(), enemies.end(),rand()%4);
                     }
                 }
             }

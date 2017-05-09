@@ -14,6 +14,9 @@
 #include "Image.h"
 #include <Windows.h>
 #include <mmsystem.h>
+#include<algorithm>
+#include<random>
+
 
 #define MAINCHAR_X -0.8
 #define MAINCHAR_Y -0.13

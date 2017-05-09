@@ -16,7 +16,7 @@ class AndroidChar : public EnemyChar {
 protected:
 	float w;
 public:
-	AndroidChar(float x, float y, GLuint loadImg [12]);
+	AndroidChar(float x, float y, float boundry, GLuint loadImg [12]);
 	void draw();
 
 	bool contains(MainChar * mc);
