@@ -31,6 +31,8 @@ class App : public GlutApp {
 	bool enemyMove = false;
 	bool gameover = false;
 	bool loop = true;
+	bool crouch = false;
+	bool isDown = false;
 
 public:
 	MainChar *mc;

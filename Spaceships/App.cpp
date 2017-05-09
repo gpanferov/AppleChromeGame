@@ -4,6 +4,7 @@ int timer = 1;
 int enemyRate = 5;
 int a = 1;
 
+
 void App::enemyCreation() {
 	timer++;
 
@@ -145,24 +146,27 @@ void App::keyPress(unsigned char key) {
 	}
 
 	//right key
-	else if (key == 39) {
+	else if (key == 'd') {
 
 	}
 
 	//up key
-	else if (key == 38) {
+	else if (key == 'w') {
 		move = !move;
 	}
 
 	//down key
-	else if (key == 40) {
-
+	else if (key == 's') {
+		if(isDown)
+		crouch = !crouch;
+		
 	}
 
 	else if (key == 'f') {
-		ec->setX(1.1);
-		ac->setX(1.1);
-		loop = true;
+		
+		//ec->setX(1.1);
+		//ac->setX(1.1);
+		//loop = true;
 	}
 }
 
@@ -174,13 +178,15 @@ void App::idle() {
 			cout << "end game" << endl;
 			loop = false;
 		}
+		if (crouch) {
+			mc->crouch();
+		}
 		if (enemyMove) {//this is to make the enemy move from right to left
 			ac->decrementX();
 			ec->decrementX();
 			if ((ec->getX() + ec->getH()) < -1.5) {
 				ec->setX(1.1);
 			}
-
 			if ((ac->getX() + ec->getH()) < -1.5) {
 				ac->setX(1.1);
 			}
