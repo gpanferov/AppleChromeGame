@@ -64,8 +64,14 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	
 
 
-	cd = new Image(0.472, 0.255, 0.472/2.0, 0.255/2.0, crashImg);
 
+<<<<<<< HEAD
+=======
+	ac = new AndroidChar(1.0, 0.55, android);
+	ec = new EnemyChar(1.0, -.19, enemycharacterImg);
+	cd = new Image(-0.472 * 1.75, 0.255 * 1.75, 0.472 * 3.0, 0.255 * 3.0, crashImg);
+	ss = new Image(-1 - 0.1, 1 - 0.1, 2, 2, startImg);
+>>>>>>> 816d56cf90304b191fd1a90e1561120ad97784eb
 	
 	cd = new Image(-0.472 * 1.75, 0.255 * 1.75 - 0.05, 0.472 * 3.0, 0.255 * 3.0, crashImg);
 
