@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿  App.cpp
 d:\users\iruss\documents\applechromegame\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
 d:\users\iruss\documents\applechromegame\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
@@ -7,75 +6,25 @@ d:\users\iruss\documents\applechromegame\spaceships\crashdialog.h(15): warning C
 d:\users\iruss\documents\applechromegame\spaceships\crashdialog.h(16): warning C4305: 'initializing': truncation from 'double' to 'float'
 d:\users\iruss\documents\applechromegame\spaceships\crashdialog.h(17): warning C4305: 'initializing': truncation from 'double' to 'float'
 d:\users\iruss\documents\applechromegame\spaceships\crashdialog.h(18): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(42): warning C4305: 'argument': truncation from 'double' to 'float'
 d:\users\iruss\documents\applechromegame\spaceships\app.cpp(43): warning C4305: 'argument': truncation from 'double' to 'float'
 d:\users\iruss\documents\applechromegame\spaceships\app.cpp(44): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(167): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\iruss\documents\applechromegame\spaceships\app.cpp(45): warning C4305: 'argument': truncation from 'double' to 'float'
 d:\users\iruss\documents\applechromegame\spaceships\app.cpp(168): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(185): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(189): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(197): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(202): warning C4305: 'argument': truncation from 'double' to 'float'
-  glutapp.vcxproj -> D:\Users\iRuss\Documents\AppleChromeGame\Spaceships\visualc15\obj\glutapp_Debug\glutapp.exe
-  glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
-=======
-<<<<<<< HEAD
-﻿  App.cpp
-c:\users\mohit\documents\applechromegame\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\enemychar.h(24): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\app.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\app.cpp(42): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\app.cpp(43): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\app.cpp(163): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\app.cpp(164): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\app.cpp(181): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\app.cpp(185): warning C4305: 'argument': truncation from 'double' to 'float'
-  EnemyChar.cpp
-c:\users\mohit\documents\applechromegame\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\enemychar.h(24): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\enemychar.cpp(18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mohit\documents\applechromegame\spaceships\enemychar.cpp(34): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\enemychar.cpp(42): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\mohit\documents\applechromegame\spaceships\enemychar.cpp(50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  glutapp.vcxproj -> C:\Users\Mohit\Documents\AppleChromeGame\Spaceships\visualc15\obj\glutapp_Debug\glutapp.exe
-  glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
-=======
-﻿  AndroidChar.cpp
-d:\users\iruss\documents\applechromegame\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\enemychar.h(24): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\androidchar.cpp(18): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\androidchar.cpp(18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\users\iruss\documents\applechromegame\spaceships\androidchar.cpp(23): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\androidchar.cpp(23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  App.cpp
-d:\users\iruss\documents\applechromegame\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\enemychar.h(24): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(42): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(43): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(163): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(164): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(181): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\app.cpp(185): warning C4305: 'argument': truncation from 'double' to 'float'
-  EnemyChar.cpp
-d:\users\iruss\documents\applechromegame\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\enemychar.h(24): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\enemychar.cpp(18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\users\iruss\documents\applechromegame\spaceships\enemychar.cpp(34): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\enemychar.cpp(42): warning C4305: '+=': truncation from 'double' to 'float'
-d:\users\iruss\documents\applechromegame\spaceships\enemychar.cpp(50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+d:\users\iruss\documents\applechromegame\spaceships\app.cpp(169): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\iruss\documents\applechromegame\spaceships\app.cpp(186): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\iruss\documents\applechromegame\spaceships\app.cpp(190): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\iruss\documents\applechromegame\spaceships\app.cpp(198): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\users\iruss\documents\applechromegame\spaceships\app.cpp(203): warning C4305: 'argument': truncation from 'double' to 'float'
   app_main.cpp
 d:\users\iruss\documents\applechromegame\spaceships\mainchar.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
 d:\users\iruss\documents\applechromegame\spaceships\enemychar.h(23): warning C4305: 'initializing': truncation from 'double' to 'float'
 d:\users\iruss\documents\applechromegame\spaceships\enemychar.h(24): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\users\iruss\documents\applechromegame\spaceships\crashdialog.h(15): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\users\iruss\documents\applechromegame\spaceships\crashdialog.h(16): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\users\iruss\documents\applechromegame\spaceships\crashdialog.h(17): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\users\iruss\documents\applechromegame\spaceships\crashdialog.h(18): warning C4305: 'initializing': truncation from 'double' to 'float'
   Generating Code...
+  LINK : obj\glutapp_Debug\glutapp.exe not found or not built by the last incremental link; performing full link
+AndroidChar.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   glutapp.vcxproj -> D:\Users\iRuss\Documents\AppleChromeGame\Spaceships\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
->>>>>>> refs/remotes/origin/master
->>>>>>> 513cdd0c9c58940e1ddcac3247e693ba95a34343
