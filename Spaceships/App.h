@@ -55,6 +55,7 @@ public:
 	void keyPress(unsigned char key);
 	void replay();
 	void idle();
+    void randomize(vector<EnemyChar*> vecs);
 
 	float enemyCreation();
 	void displayScoreInfo();
