@@ -1,5 +1,5 @@
-#ifndef App_hpp
-#define App_hpp
+#ifndef App_h
+#define App_h
 
 #include <iostream> 
 #include "GlutApp.h"
