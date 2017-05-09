@@ -55,12 +55,9 @@ void EnemyChar::draw() {
 }
 
 bool EnemyChar::contains(MainChar * mc) {
-	//if (((((mc->getX() >= this->x) && (mc->getX() <= (this->x + this->h))) || (((mc->getX() + mc->getH())>= this->x) && ((mc->getX() + mc->getH()) <= (this->x + this->h))) && ((mc->getY() >= (this->y - this->h)) && (mc->getY() <= this->y))) {
-		//return true;
-	//}
 	if (((mc->getX() >= this->x) && (mc->getX() <= (this->x + this->h))) || (((mc->getX() + mc->getH()) >= this->x) && ((mc->getX() + mc->getH()) <= (this->x + this->h)))) {
-		if (((mc->getY() - mc->getH()) >= this->y - this->h) && ((mc->getY() - mc->getH()) <= (this->y - .02))) {
-		return true;
+		if (((mc->getY() - mc->getH()) >= (this->y - this->h - .02)) && ((mc->getY() - mc->getH()) <= (this->y))) {
+			return true;
 		}
 	}
 		return false;

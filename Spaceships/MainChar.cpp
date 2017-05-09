@@ -25,8 +25,15 @@ float MainChar::getX() {
 float MainChar::getH() {
 	return h;
 }
+<<<<<<< HEAD
+
+void MainChar::crouch() {
+	this->c = .1;
+	cout << "crouch" << endl;
+=======
 void MainChar::setY(float y) {
 	this->y = y;
+>>>>>>> 0f587db5b3ef6220b2a0a9db0e8575d308dabad0
 }
 
 void MainChar::incrementY() {
@@ -39,7 +46,7 @@ void MainChar::decrementY() {
 
 void MainChar::draw() {
 	delete characterBack;
-	characterBack = new TexRect(x + 0.1, y + 0.1, h, h);
+	characterBack = new TexRect(x + 0.1, y + 0.1, h, (h-c));
 	// Set Color
 	glColor3f(1.0, 1.0, 1.0);
 	glBindTexture(GL_TEXTURE_2D, characterImg);
