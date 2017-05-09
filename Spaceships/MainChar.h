@@ -20,7 +20,8 @@ class MainChar {
 	float y = 0;
 	float h = 0.2;
 	float c = 0.0;
- 
+	bool is_crouch = false;
+
 public:
 	// Default constructor
 	MainChar(float x, float y, GLuint loadImg);

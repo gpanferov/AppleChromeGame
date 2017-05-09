@@ -172,9 +172,7 @@ void App::keyPress(unsigned char key) {
 
 	//down key
 	else if (key == 's') {
-		if(isDown)
-		crouch = !crouch;
-		
+		mc->crouch();
 	}
 
 	else if (key == 'f') {
@@ -192,9 +190,6 @@ void App::idle() {
 		if (enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
 			cout << "end game" << endl;
 			loop = false;
-		}
-		if (crouch) {
-			mc->crouch();
 		}
 		if (enemyMove) {//this is to make the enemy move from right to left
 			enemies[0]->decrementX();
