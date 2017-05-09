@@ -1,42 +1,6 @@
 #include "App.h"
 
 
-void App::increaseSpeed() {
-	if ((score+1) % 10 == 0) {
-		score++;
-		for (int enemySize = 0; enemySize < enemies.size(); enemySize++) {
-			enemies[enemySize]->changeSpeed();
-		}
-	}
-}
-
-float App::enemyCreation() {
-	float num = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
-	float final_num = 0.5 - num;
-	return final_num;
-}
-/*
-void App::replay() {
-	enemies[2]->setX(2.5);
-	enemies[0]->setX(4.0);
-	enemies[3]->setX(5.5);
-	enemies[3]->setX(7.0);
-}
-*/
-
-void App::displayScoreInfo() {
-	string a = ("The score is: " + to_string(score));
-	RenderString(-.2, .8, a);
-}
-
-void App::RenderString(GLdouble x, GLdouble y, const std::string &string)
-{
-	glColor3d(0.0, 0.0, 0.0);
-	glRasterPos2d(x, y);
-	for (int n = 0; n<string.size(); ++n) {
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, string[n]);
-	}
-}
 
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
 
@@ -51,7 +15,6 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	}
 	crashImg = loadTexture("..\\crash_img.bmp");
 	startImg = loadTexture("..\\startup_screen.bmp");
-	//windowsImg = loadTexture("..\\windows_xp.bmp");
 #else
 	characterImg = loadTexture("apple.bmp");
     enemycharacterImg = loadTexture("windows.bmp");
@@ -63,12 +26,11 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	}
 	crashImg = loadTexture("crash_img.bmp");
 	startImg = loadTexture("startup_screen.bmp");
-	//windowsImg = loadTexture("windows_xp.bmp");
 #endif
 	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
-	enemies.push_back(new AndroidChar(4.5, 0.13, android));
-	enemies.push_back(new AndroidChar(8.5, 0.13, android));
+	enemies.push_back(new AndroidChar(4.5, 0.133, android));
+	enemies.push_back(new AndroidChar(8.5, 0.133, android));
 	enemies.push_back(new EnemyChar(2.5, -.19, enemycharacterImg));
 	enemies.push_back(new EnemyChar(6.5, -.19, enemycharacterImg));
 	srand(time(NULL));
@@ -76,12 +38,61 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	ss = new Image(-1 - 0.1, 1 - 0.1, 2, 2, startImg);
 	cd = new Image(-0.472 * 1.75, 0.255 * 1.75 - 0.05, 0.472 * 3.0, 0.255 * 3.0, crashImg);
 
-	//wb = new Image(-1, -1, 1, 0.1354, windowsImg);
-
 	enemyMove = true;
-	//characterBack = new TexRect(MAINCHAR_X + 0.1, MAINCHAR_Y + 0.1, 0.2, 0.2);
 }
 
+//This function is to increase the speed as the score increases
+void App::increaseSpeed() {
+	if ((score + 1) % 10 == 0) {
+		score++;
+		for (int enemySize = 0; enemySize < enemies.size(); enemySize++) {
+			enemies[enemySize]->changeSpeed();
+		}
+	}
+}
+//This function randomizes the locations for the enemy
+float App::enemyCreation() {
+	float num = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+	float final_num = 0.5 - num;
+	return final_num;
+}
+/*
+void App::replay() {
+enemies[2]->setX(2.5);
+enemies[0]->setX(4.0);
+enemies[3]->setX(5.5);
+enemies[3]->setX(7.0);
+}
+*/
+
+
+//Displays the score 
+void App::displayScoreInfo() {
+	string a = ("The score is: " + to_string(score));
+	RenderString(-.3, .8, a);
+}
+//Displays the title
+void App::displayTitleInfo() {
+	string a = ("Apple Chrome Game");
+	RenderString(-.4, .9, a);
+}
+//Displays the rules
+void App::displayRulesInfo() {
+	string a = ("Press Space To Jump: Press S To Crouch");
+	RenderString(-.7, -.7, a);
+}
+//Renders the string and uses BitmapChar to display text
+void App::RenderString(GLdouble x, GLdouble y, const std::string &string)
+{
+	glColor3d(0.0, 0.0, 0.0);
+	glRasterPos2d(x, y);
+	for (int n = 0; n<string.size(); ++n) {
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, string[n]);
+	}
+}
+
+
+//Texture function
 GLuint App::loadTexture(const char *filename) {
 	GLuint texture_id;
 	glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -121,29 +132,24 @@ void App::draw() {
 	// Set up the transformations stack
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	//drawBitmapText(score, x, y, z);
 	if (!gameplay) {
 		cd->draw();
 	}
 	if (!loop && gameplay) {
 		ss->draw();
 	}
-	//wb->draw();
 
-	//draws the beginning piece
-
+	//Draws our main character and our enemies
 	mc->draw();
 	for (int i = 0; i < 4; i++) {
 		enemies[i]->draw();
 	}
+	//Displays the text 
 	displayScoreInfo();
-		
+	displayTitleInfo();
 	
-	//glColor3f(1.0, 1.0, 1.0);
-	//glBindTexture(GL_TEXTURE_2D, characterImg);
-	//characterBack->draw();
-
-
+		
+	//This is the main draw
 	glColor3f(0.0, 0.0, 0.0);
 	glBegin(GL_LINES);
 	glVertex2f(-1.0, .5);
@@ -154,9 +160,6 @@ void App::draw() {
 	glEnd();
 
 	
-
-
-
 	// We have been drawing everything to the back buffer
 	// Swap the buffers to see the result of what we drew
 	glFlush();
@@ -212,7 +215,6 @@ void App::keyPress(unsigned char key) {
 }
 
 void App::idle() {
-	// loop should always be true, unless it's game over
 	if (loop) {
 		if (!godMode) {
 			if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
@@ -221,7 +223,7 @@ void App::idle() {
 				loop = !loop;
 			}
 		}
-		if (enemyMove) {//this is to make the enemy move from right to left
+		if (enemyMove) {
 			enemies[0]->decrementX();
 			enemies[1]->decrementX();
 			enemies[2]->decrementX();
@@ -277,26 +279,20 @@ void App::idle() {
 		}
 		if (jump && !mc->get_is_crouch()) {
 			float tmp_y = mc->getY();
-			//cout << tmp_y << ", " << top_of_jump << endl;
 			if (tmp_y >= JUMP_HEIGHT) {
 				top_of_jump = true;
 				mc->setY(JUMP_HEIGHT);
-				//cout << "TOP" << endl;
 			} else if (tmp_y <= RUN_HEIGHT) {
 				top_of_jump = false;
 				jump = false;
 				mc->setY(RUN_HEIGHT);
-				//cout << "BOTTOM" << endl;
 			}
 			if (!top_of_jump && tmp_y <= JUMP_HEIGHT) {
 				mc->incrementY();
-				//cout << "UP" << endl;
 			}
 			if (top_of_jump && tmp_y >= RUN_HEIGHT) {
 				mc->decrementY();
-				//cout << "DOWN" << endl;
 			}
-
 		}
 
 		
@@ -307,7 +303,7 @@ void App::idle() {
 	}
 
 App::~App() {
-	enemies.clear;
+	enemies.clear();
 	delete mc;
 	delete cd;
 	delete ss;

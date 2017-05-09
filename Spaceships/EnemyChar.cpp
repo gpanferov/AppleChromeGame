@@ -60,10 +60,6 @@ bool EnemyChar::contains(MainChar * mc) {
 			return true;
 		}
 		if (((mc->getY() - mc->getH()) >= (this->y - this->h - .02)) && ((mc->getY() - mc->getH()) <= (this->y) - .02)) {
-			cout << "Main Char x: " << mc->getX() << "  " << (mc->getX() + mc->getH()) << endl;
-			cout << "Main Char y: " << mc->getY() << "  " << (mc->getY() - mc->getH()) << endl;
-			cout << "Enemy Char x: " << this->x << "  " << (this->x + this->h) << endl;
-			cout << "Enemy Char Y: " << this->y << "  " << (this->y - this->h) << endl;
 			return true;
 		}
 	}

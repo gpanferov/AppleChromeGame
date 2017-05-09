@@ -51,6 +51,8 @@ public:
 	void idle();
 	float enemyCreation();
 	void displayScoreInfo();
+	void displayTitleInfo();
+	void displayRulesInfo();
 	void RenderString(GLdouble x, GLdouble y, const std::string &string);
 	void increaseSpeed();
 	//void replay();

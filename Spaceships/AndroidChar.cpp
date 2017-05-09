@@ -37,10 +37,7 @@ void AndroidChar::draw() {
 bool AndroidChar::contains(MainChar * mc) {
 	if (((mc->getX() >= this->x) && (mc->getX() <= (this->x + this->w))) || (((mc->getX() + mc->getH()) >= this->x) && ((mc->getX() + mc->getH()) <= (this->x + this->w)))) {
 		if (((mc->getY() - mc->getH()) >= (this->y - this->h)) && ((mc->getY() - mc->getH()) <= (this->y))) {
-			//cout << "Main Char x: " << mc->getX() << "  " << (mc->getX() + mc->getH()) << endl;
-			//cout << "Main Char y: " << mc->getY() << "  " << (mc->getY() - mc->getH()) << endl;
-			//cout << "Enemy Char x: " << this->x << "  " << (this->x + this->h) << endl;
-			//cout << "Enemy Char Y: " << this->y << "  " << (this->y - this->h) << endl;
+			
 			return true;
 		}
 	}

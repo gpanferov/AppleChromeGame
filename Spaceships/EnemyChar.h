@@ -1,6 +1,9 @@
 #ifndef EnemyChar_h
 #define EnemyChar_h
 
+#define DEC 0.0007;
+
+
 #if defined WIN32
 #include <freeglut.h>
 #elif defined __APPLE__
@@ -21,12 +24,11 @@ protected:
 	float x = 0;
 	float y = 0;
 	float h = 0.15;
-	float dec = 0.0005;
+	float dec = DEC;
+	
 	
 	EnemyChar();
 public:
-	// Default constructor
-	// TODO: Implement a default constructor (AndroidChar won't work without it)
 	EnemyChar(float x, float y, GLuint loadImg);
 	virtual ~EnemyChar();
 

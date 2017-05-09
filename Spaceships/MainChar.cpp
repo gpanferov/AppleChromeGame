@@ -36,7 +36,6 @@ void MainChar::crouch() {
 		c = 0;
 		y += .1;
 	}
-	cout << "crouch" << endl;
 }
 void MainChar::setY(float y) {
 	this->y = y;
