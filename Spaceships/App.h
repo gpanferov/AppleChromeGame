@@ -12,7 +12,7 @@
 #include "AndroidChar.h"
 #include <ctime>
 #include "Image.h"
-#include<Windows.h>
+#include <Windows.h>
 #include <mmsystem.h>
 
 #define MAINCHAR_X -0.8

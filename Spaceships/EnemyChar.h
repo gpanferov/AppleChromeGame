@@ -25,11 +25,11 @@ protected:
 	float y = 0;
 	float h = 0.15;
 	float dec = DEC;
-	
+	float boundry;
 	
 	EnemyChar();
 public:
-	EnemyChar(float x, float y, GLuint loadImg);
+	EnemyChar(float x, float y, float boundry, GLuint loadImg);
 	virtual ~EnemyChar();
 
 	virtual void draw();
@@ -41,6 +41,7 @@ public:
 	void changeSpeed();
 	bool is_increment = false;
 	void reset(float x, float y);
+    float getBoundry();
 	
 	virtual bool contains(MainChar * mc);
 

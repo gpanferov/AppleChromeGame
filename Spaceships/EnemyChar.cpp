@@ -5,10 +5,10 @@ using namespace std;
 
 EnemyChar::EnemyChar() {};
 
-EnemyChar::EnemyChar(float x, float y, GLuint loadImg) {
+EnemyChar::EnemyChar(float x, float y, float boundry, GLuint loadImg) {
 	this->x = x;
 	this->y = y;
-
+    this->boundry = boundry;
 #if defined WIN32
 	characterImg = loadImg;
 #else
@@ -64,6 +64,10 @@ bool EnemyChar::contains(MainChar * mc) {
 		}
 	}
 		return false;
+}
+
+float EnemyChar::getBoundry() {
+    return boundry;
 }
 
 void EnemyChar::reset(float x, float y) {
