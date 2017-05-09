@@ -149,6 +149,10 @@ void App::keyPress(unsigned char key) {
 	}
 	else if (key == ' ') {
 		// Uncomment below to enable user to stop moving
+		if (crouch) {
+			mc->crouch();
+			crouch = !crouch;
+		}
 		jump = true;
 	}
 	//13 is for the enter key "press enter if you would like to start the game"
@@ -175,7 +179,7 @@ void App::keyPress(unsigned char key) {
 
 	//down key
 	else if (key == 's') {
-		
+		crouch = true;
 		if(!jump)
 		mc->crouch();
 	}
