@@ -30,8 +30,7 @@ void AndroidChar::draw() {
 
 	glBindTexture(GL_TEXTURE_2D, androidImg[(animateCount++/50) % 12]);
 	characterBack->draw();
-<<<<<<< HEAD
-=======
+
 	//cout << "draw called" << endl;
 }
 
@@ -46,5 +45,5 @@ bool AndroidChar::contains(MainChar * mc) {
 		}
 	}
 	return false;
->>>>>>> 116049798de4029f7586066e947a9444131b0b6e
+
 }

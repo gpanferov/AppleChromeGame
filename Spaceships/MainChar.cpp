@@ -40,10 +40,6 @@ void MainChar::crouch() {
 }
 void MainChar::setY(float y) {
 	this->y = y;
-<<<<<<< HEAD
-
-=======
->>>>>>> 116049798de4029f7586066e947a9444131b0b6e
 }
 
 void MainChar::incrementY() {

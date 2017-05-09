@@ -35,6 +35,7 @@ class App : public GlutApp {
 	bool loop = false;
 	bool crouch = false;
 	bool isDown = false;
+	bool godMode = false;
 	
 
 public:
@@ -53,7 +54,8 @@ public:
 	void keyPress(unsigned char key);
 	void idle();
 	float enemyCreation();
-	void drawBitmapText(char *string, float x, float y, float z);
+	void displayMapInfo();
+	void RenderString(GLdouble x, GLdouble y, const std::string &string);
 	//void replay();
 	GLuint loadTexture(const char* filename);
 

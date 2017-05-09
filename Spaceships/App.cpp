@@ -21,14 +21,18 @@ void App::replay() {
 }
 */
 
-void App::drawBitmapText(char *string, float x, float y, float z){
-	char *c;
-	glRasterPos3f(x, y, z);
-	//string = to_string(score);
-	//for (c = string; *c != a.c_str; c++)
-	//{
-	//	glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, *c);
-	//}
+void App::displayMapInfo() {
+	string a = ("The score is: " + to_string(score));
+	RenderString(-.2, .8, a);
+}
+
+void App::RenderString(GLdouble x, GLdouble y, const std::string &string)
+{
+	glColor3d(0.0, 0.0, 0.0);
+	glRasterPos2d(x, y);
+	for (int n = 0; n<string.size(); ++n) {
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, string[n]);
+	}
 }
 
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
@@ -56,10 +60,10 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 #endif
 	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
-	enemies.push_back(new AndroidChar(4.0, 0.13, android));
-	enemies.push_back(new AndroidChar(7.0, 0.13, android));
+	enemies.push_back(new AndroidChar(4.5, 0.13, android));
+	enemies.push_back(new AndroidChar(8.5, 0.13, android));
 	enemies.push_back(new EnemyChar(2.5, -.19, enemycharacterImg));
-	enemies.push_back(new EnemyChar(5.5, -.19, enemycharacterImg));
+	enemies.push_back(new EnemyChar(6.5, -.19, enemycharacterImg));
 	srand(time(NULL));
 	
 
@@ -129,7 +133,7 @@ void App::draw() {
 	for (int i = 0; i < 4; i++) {
 		enemies[i]->draw();
 	}
-	
+	displayMapInfo();
 		
 	/*for (int i = 0; i < enemies.size(); i++) {
 		enemies[i]->draw();
@@ -180,14 +184,10 @@ void App::keyPress(unsigned char key) {
 		
 	}
 
-	//left key
-	else if (key == 37) {
-
-	}
 
 	//right key
 	else if (key == 'd') {
-
+		godMode = !godMode;
 	}
 
 	//up key
@@ -216,37 +216,39 @@ void App::keyPress(unsigned char key) {
 void App::idle() {
 	// loop should always be true, unless it's game over
 	if (loop) {
-		
-		if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
-			cout << "end game" << endl;
-			gameplay = !gameplay;
-			cout << score << endl;
-			loop = !loop;
+		if (godMode = false) {
+			if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
+				cout << "end game" << endl;
+				gameplay = !gameplay;
+				cout << score << endl;
+				loop = !loop;
+			}
 		}
 		if (enemyMove) {//this is to make the enemy move from right to left
 			enemies[0]->decrementX();
 			enemies[1]->decrementX();
 			enemies[2]->decrementX();
 			enemies[3]->decrementX();
-			float num = enemyCreation() + 6.0;
+				float num = enemyCreation() + 7.0;
+				if ((enemies[0]->getX() + enemies[0]->getH()) < -1.5) {
+					enemies[0]->setX(num);
+					score++;
+				}
+				if ((enemies[1]->getX() + enemies[1]->getH()) < -1.5) {
+					enemies[1]->setX(num);
+					score++;
+				}
+
+				if ((enemies[2]->getX() + enemies[2]->getH()) < -1.5) {
+					enemies[2]->setX(num);
+					score++;
+				}
+				if ((enemies[3]->getX() + enemies[3]->getH()) < -1.5) {
+					enemies[3]->setX(num);
+					score++;
+				}
+				
 			
-			if ((enemies[0]->getX() + enemies[0]->getH()) < -1.5) {
-				enemies[0]->setX(num);
-				score++;
-			}
-			if ((enemies[1]->getX() + enemies[1]->getH()) < -1.5) {
-				enemies[1]->setX(num);
-				score++;
-			}
-		
-			if ((enemies[2]->getX() + enemies[2]->getH()) < -1.5) {
-				enemies[2]->setX(num);
-				score++;
-			}
-			if ((enemies[3]->getX() + enemies[3]->getH()) < -1.5) {
-				enemies[3]->setX(num);
-				score++;
-			}
 		}
 		if (jump && !mc->get_is_crouch()) {
 			float tmp_y = mc->getY();

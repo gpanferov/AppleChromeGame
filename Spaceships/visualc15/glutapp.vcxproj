@@ -121,7 +121,6 @@
     <ClCompile Include="..\GlutApp.cpp" />
     <ClCompile Include="..\Image.cpp" />
     <ClCompile Include="..\MainChar.cpp" />
-    <ClCompile Include="..\Rectangle1.cpp" />
     <ClCompile Include="..\RgbImage.cpp" />
     <ClCompile Include="..\TexRect.cpp" />
   </ItemGroup>
@@ -132,9 +131,7 @@
     <ClInclude Include="..\GlutApp.h" />
     <ClInclude Include="..\Image.h" />
     <ClInclude Include="..\MainChar.h" />
-    <ClInclude Include="..\Rectangle1.h" />
     <ClInclude Include="..\RgbImage.h" />
-    <ClInclude Include="..\Shape.h" />
     <ClInclude Include="..\TexRect.h" />
   </ItemGroup>
   <ItemGroup>
