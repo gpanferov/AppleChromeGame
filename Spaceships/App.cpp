@@ -7,7 +7,6 @@
 
 
 float App::enemyCreation() {
-	
 	float num = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
 	float final_num = 0.5 - num;
 	return final_num;
