@@ -39,7 +39,7 @@ void EnemyChar::decrementX() {
 }
 
 void EnemyChar::changeSpeed() {
-	dec += .0004;
+	dec += .04;
 
 }
 
@@ -56,7 +56,14 @@ void EnemyChar::draw() {
 
 bool EnemyChar::contains(MainChar * mc) {
 	if (((mc->getX() >= this->x) && (mc->getX() <= (this->x + this->h))) || (((mc->getX() + mc->getH()) >= this->x) && ((mc->getX() + mc->getH()) <= (this->x + this->h)))) {
-		if (((mc->getY() - mc->getH()) >= (this->y - this->h - .02)) && ((mc->getY() - mc->getH()) <= (this->y))) {
+		if (mc->get_is_crouch()) {
+			return true;
+		}
+		if (((mc->getY() - mc->getH()) >= (this->y - this->h - .02)) && ((mc->getY() - mc->getH()) <= (this->y) - .02)) {
+			cout << "Main Char x: " << mc->getX() << "  " << (mc->getX() + mc->getH()) << endl;
+			cout << "Main Char y: " << mc->getY() << "  " << (mc->getY() - mc->getH()) << endl;
+			cout << "Enemy Char x: " << this->x << "  " << (this->x + this->h) << endl;
+			cout << "Enemy Char Y: " << this->y << "  " << (this->y - this->h) << endl;
 			return true;
 		}
 	}

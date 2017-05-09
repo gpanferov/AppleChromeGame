@@ -1,24 +1,35 @@
 #include "App.h"
 
-int timer = 1;
-int enemyRate = 5;
-int a = 1;
 
 
-void App::enemyCreation() {
-	timer++;
 
-	if (timer % (3000*enemyRate) == 0) {
-		a++;
-		
-	}
-	if (a % 4 == 0) {
-		//ec->changeSpeed();
-		//cout << "speed changed" << endl;
-	}
+
+
+
+
+float App::enemyCreation() {
+	float num = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
+	float final_num = 0.5 - num;
+	return final_num;
 }
+/*
+void App::replay() {
+	enemies[2]->setX(2.5);
+	enemies[0]->setX(4.0);
+	enemies[3]->setX(5.5);
+	enemies[3]->setX(7.0);
+}
+*/
 
-
+void App::drawBitmapText(char *string, float x, float y, float z){
+	char *c;
+	glRasterPos3f(x, y, z);
+	//string = to_string(score);
+	//for (c = string; *c != a.c_str; c++)
+	//{
+	//	glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, *c);
+	//}
+}
 
 App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w, h) {
 
@@ -32,6 +43,7 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 		android[i] = loadTexture(N);
 	}
 	crashImg = loadTexture("..\\crash_img.bmp");
+	//windowsImg = loadTexture("..\\windows_xp.bmp");
 #else
 	characterImg = loadTexture("apple.bmp");
 	for (int i = 0; i < 12; i++) {
@@ -40,11 +52,26 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 		android[i] = loadTexture(name.c_str());
 	}
 	crashImg = loadTexture("crash_img.bmp");
+	windowsImg = loadTexture("windows_xp.bmp");
 #endif
+	
 	mc = new MainChar(MAINCHAR_X, MAINCHAR_Y, characterImg);
+	enemies.push_back(new AndroidChar(4.0, 0.13, android));
+	enemies.push_back(new AndroidChar(7.0, 0.13, android));
+	enemies.push_back(new EnemyChar(2.5, -.19, enemycharacterImg));
+	enemies.push_back(new EnemyChar(5.5, -.19, enemycharacterImg));
+	srand(time(NULL));
+	
+
+
 	ac = new AndroidChar(1.0, 0.55, android);
 	ec = new EnemyChar(1.0, -.19, enemycharacterImg);
-	cd = new CrashDialog(crashImg);
+	ss = new Image(-1 - 0.1, 1 - 0.1, 2, 2, startImg);
+	
+	cd = new Image(-0.472 * 1.75, 0.255 * 1.75 - 0.05, 0.472 * 3.0, 0.255 * 3.0, crashImg);
+
+	//wb = new Image(-1, -1, 1, 0.1354, windowsImg);
+
 	enemyMove = true;
 	//characterBack = new TexRect(MAINCHAR_X + 0.1, MAINCHAR_Y + 0.1, 0.2, 0.2);
 }
@@ -88,16 +115,21 @@ void App::draw() {
 	// Set up the transformations stack
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
-	if (!loop) {
+	//drawBitmapText(score, x, y, z);
+	if (!gameplay) {
 		cd->draw();
 	}
+
+	//ss->draw();
+	//wb->draw();
 
 	//draws the beginning piece
 
 	mc->draw();
-	ac->draw();
-	ec->draw();
+	for (int i = 0; i < 4; i++) {
+		enemies[i]->draw();
+	}
+	
 		
 	/*for (int i = 0; i < enemies.size(); i++) {
 		enemies[i]->draw();
@@ -136,12 +168,15 @@ void App::keyPress(unsigned char key) {
 	}
 	else if (key == ' ') {
 		// Uncomment below to enable user to stop moving
+		if (crouch) {
+			mc->crouch();
+			crouch = !crouch;
+		}
 		jump = true;
 	}
 	//13 is for the enter key "press enter if you would like to start the game"
 	else if (key == 13) {
-		//	main_char->draw()
-		//gameStart = !gameStart
+		loop = true;
 		
 	}
 
@@ -162,41 +197,58 @@ void App::keyPress(unsigned char key) {
 
 	//down key
 	else if (key == 's') {
-		if(isDown)
-		crouch = !crouch;
-		
-	}
+		if (loop) {
+			crouch = !crouch;
+			if (!jump)
+				mc->crouch();
+		}
+	}  
 
 	else if (key == 'f') {
-		
-		//ec->setX(1.1);
-		//ac->setX(1.1);
-		//loop = true;
+		gameplay = !gameplay;
+		loop = !loop;
+		//replay();
 	}
+	
 }
+
 
 void App::idle() {
 	// loop should always be true, unless it's game over
 	if (loop) {
-		enemyCreation();
-		if (ec->contains(mc)) {
+		
+		if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
 			cout << "end game" << endl;
-			loop = false;
-		}
-		if (crouch) {
-			mc->crouch();
+			gameplay = !gameplay;
+			cout << score << endl;
+			loop = !loop;
 		}
 		if (enemyMove) {//this is to make the enemy move from right to left
-			ac->decrementX();
-			ec->decrementX();
-			if ((ec->getX() + ec->getH()) < -1.5) {
-				ec->setX(1.1);
+			enemies[0]->decrementX();
+			enemies[1]->decrementX();
+			enemies[2]->decrementX();
+			enemies[3]->decrementX();
+			float num = enemyCreation() + 6.0;
+			
+			if ((enemies[0]->getX() + enemies[0]->getH()) < -1.5) {
+				enemies[0]->setX(num);
+				score++;
 			}
-			if ((ac->getX() + ec->getH()) < -1.5) {
-				ac->setX(1.1);
+			if ((enemies[1]->getX() + enemies[1]->getH()) < -1.5) {
+				enemies[1]->setX(num);
+				score++;
+			}
+		
+			if ((enemies[2]->getX() + enemies[2]->getH()) < -1.5) {
+				enemies[2]->setX(num);
+				score++;
+			}
+			if ((enemies[3]->getX() + enemies[3]->getH()) < -1.5) {
+				enemies[3]->setX(num);
+				score++;
 			}
 		}
-		if (jump) {
+		if (jump && !mc->get_is_crouch()) {
 			float tmp_y = mc->getY();
 			//cout << tmp_y << ", " << top_of_jump << endl;
 			if (tmp_y >= JUMP_HEIGHT) {
@@ -220,16 +272,12 @@ void App::idle() {
 
 		}
 
-		if (gameover) {
-			// Stop looping, otherwise final message will be displayed many times
-			loop = false;
-		}
-
+		
 		// Redraw the scene after all modifications have been made
 		//sleep_for(nanoseconds(1000));
 		redraw();
 	}
-}
+	}
 
 App::~App() {
 

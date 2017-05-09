@@ -27,20 +27,35 @@ float MainChar::getH() {
 }
 
 void MainChar::crouch() {
-	this->c = .1;
+	is_crouch = !is_crouch;
+	if (is_crouch) {
+		c = .1;
+		y -= .1;
+	}
+	else {
+		c = 0;
+		y += .1;
+	}
 	cout << "crouch" << endl;
 }
 void MainChar::setY(float y) {
 	this->y = y;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 116049798de4029f7586066e947a9444131b0b6e
 }
 
 void MainChar::incrementY() {
-	y += 0.009;
+	y += 0.0007;
 }
 
 void MainChar::decrementY() {
-	y -= 0.009;
+	y -= 0.0007;
+}
+
+bool MainChar::get_is_crouch() {
+	return is_crouch;
 }
 
 void MainChar::draw() {

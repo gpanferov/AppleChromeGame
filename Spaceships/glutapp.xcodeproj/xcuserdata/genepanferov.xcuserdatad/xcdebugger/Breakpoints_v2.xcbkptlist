@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "190"
             endingLineNumber = "190"
-            landmarkName = "App::idle()"
+            landmarkName = "App::keyPress(unsigned char key)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

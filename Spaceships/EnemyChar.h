@@ -27,7 +27,7 @@ public:
 	// Default constructor
 	// TODO: Implement a default constructor (AndroidChar won't work without it)
 	EnemyChar(float x, float y, GLuint loadImg);
-	void draw();
+	virtual void draw();
 	void incrementX();
 	void decrementX();
 	float getX();
@@ -35,7 +35,7 @@ public:
 	float getH();
 	void changeSpeed();
 	
-	bool contains(MainChar * mc);
+	virtual bool contains(MainChar * mc);
 
 	GLuint characterImg;
 	TexRect *characterBack;

@@ -13,11 +13,17 @@
 
 class AndroidChar : public EnemyChar {
 	int animateCount = 0;
+protected:
+	float h;
+	float w;
 public:
-	AndroidChar(float x, float y, GLuint loadImg []);
+	AndroidChar(float x, float y, GLuint loadImg [12]);
 	void draw();
+
+	bool contains(MainChar * mc);
 
 	GLuint androidImg[12];
 };
+
 
 #endif

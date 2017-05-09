@@ -20,7 +20,9 @@ class MainChar {
 	float y = 0;
 	float h = 0.2;
 	float c = 0.0;
- 
+	bool is_crouch = false;
+	
+
 public:
 	// Default constructor
 	MainChar(float x, float y, GLuint loadImg);
@@ -30,8 +32,16 @@ public:
 	float getY();
 	float getX();
 	float getH();
+<<<<<<< HEAD
 	void crouch();
 	void setY(float y);
+=======
+	bool get_is_crouch();
+
+	void crouch();
+	void setY(float y);
+
+>>>>>>> 116049798de4029f7586066e947a9444131b0b6e
 	GLuint characterImg;
 	TexRect *characterBack;
 };
