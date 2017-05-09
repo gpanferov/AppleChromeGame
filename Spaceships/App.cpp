@@ -37,7 +37,7 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
 	for (int i = 0; i < 12; i++) {
 		string name = "flying_android_" + i;
 		name += +".bmp";
-		android[i] = loadTexture(name.c_str);
+		android[i] = loadTexture(name.c_str());
 	}
 	crashImg = loadTexture("crash_img.bmp");
 #endif

@@ -11,7 +11,7 @@ AndroidChar::AndroidChar(float x, float y, GLuint loadImg [12]) {
 	}
 #else
 	for (int i = 0; i < 12; i++) {
-		androidImg[i] = loadImg;
+		androidImg[i] = loadImg[i];
 	}
 #endif
 

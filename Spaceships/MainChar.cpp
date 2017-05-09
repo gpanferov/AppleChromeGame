@@ -25,15 +25,14 @@ float MainChar::getX() {
 float MainChar::getH() {
 	return h;
 }
-<<<<<<< HEAD
 
 void MainChar::crouch() {
 	this->c = .1;
 	cout << "crouch" << endl;
-=======
+}
 void MainChar::setY(float y) {
 	this->y = y;
->>>>>>> 0f587db5b3ef6220b2a0a9db0e8575d308dabad0
+
 }
 
 void MainChar::incrementY() {
