@@ -55,11 +55,12 @@ public:
 	void keyPress(unsigned char key);
 	void replay();
 	void idle();
-    void randomize(vector<EnemyChar*> vecs);
+    
 
 	float enemyCreation();
 	void displayScoreInfo();
 	void displayTitleInfo();
+	void displayResetInfo();
 	void displayRulesInfo();
 	void RenderString(GLdouble x, GLdouble y, const std::string &string);
 	void increaseSpeed();

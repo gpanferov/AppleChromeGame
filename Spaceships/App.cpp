@@ -34,6 +34,8 @@ App::App(const char* label, int x, int y, int w, int h) : GlutApp(label, x, y, w
     enemies.push_back(new AndroidChar(8.5, 0.133, -1.0, android));
     enemies.push_back(new EnemyChar(2.5, -.19, -1.3, enemycharacterImg));
     enemies.push_back(new EnemyChar(6.5, -.19, -1.3, enemycharacterImg));
+	enemies.push_back(new AndroidChar(10.5, 0.133, -1.0, android));
+	enemies.push_back(new EnemyChar(12.5, -.19, -1.3, enemycharacterImg));
     srand(time(NULL));
     
     ss = new Image(-1 - 0.1, 1 - 0.1, 2, 2, startImg);
@@ -75,6 +77,11 @@ void App::displayTitleInfo() {
 void App::displayRulesInfo() {
     string a = ("Press Space To Jump: Press S To Crouch");
     RenderString(-.7, -.7, a);
+}
+
+void App::displayResetInfo() {
+    string a = ("Press F to reset");
+    RenderString(-.2, -.7, a);
 }
 //Renders the string and uses BitmapChar to display text
 void App::RenderString(GLdouble x, GLdouble y, const std::string &string)
@@ -130,19 +137,21 @@ void App::draw() {
     
     if (!gameplay) {
         cd->draw();
+		displayResetInfo();
     }
     if (!loop && gameplay) {
         ss->draw();
     }
+	
     
     //Draws our main character and our enemies
     mc->draw();
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < enemies.size(); i++) {
         enemies[i]->draw();
     }
     //Displays the text
     displayScoreInfo();
-    if (score == 0) {
+    if (score == 0 && gameplay) {
         displayTitleInfo();
         displayRulesInfo();
     }
@@ -216,47 +225,18 @@ void App::replay() {
     enemies[1]->reset(8.5, 0.133);
     enemies[2]->reset(2.5, -.19);
     enemies[3]->reset(6.5, -.19);
+	enemies[4]->reset(10.5, 0.133);
+	enemies[5]->reset(12.5, -.19);
     srand(time(NULL));
     gameplay = true;
     loop = true;
     score = 0;
 }
 
-void App::randomize(vector<EnemyChar*> vecs){
-    int randomNum = rand() % 4;
-    float randomFloat;
-    vector<int> chosenVals;
-    for(int i = 0; i < vecs.size(); i++) {
-        while(find(chosenVals.begin(), chosenVals.end(), randomNum) != chosenVals.end())
-            randomNum = rand() % 4;
-        switch (randomNum) {
-            case 0:
-                randomFloat = 4.5;
-                vecs[i]->setX(randomFloat);
-                break;
-            case 1:
-                randomFloat = 8.5;
-                vecs[i]->setX(randomFloat);
-                break;
-            case 2:
-                randomFloat = 2.5;
-                vecs[i]->setX(randomFloat);
-                break;
-            case 3:
-                randomFloat = 6.5;
-                vecs[i]->setX(randomFloat);
-                break;
-            default:
-                break;
-        }
-        chosenVals.push_back(randomNum);
-    }
-}
-
 void App::idle() {
     if (loop) {
         if (!godMode) {
-            if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc)) {
+            if (enemies[0]->contains(mc) || enemies[1]->contains(mc) || enemies[2]->contains(mc) || enemies[3]->contains(mc) || enemies[4]->contains(mc) || enemies[5]->contains(mc)) {
                 gameplay = !gameplay;
                 cout << score << endl;
                 loop = !loop;
@@ -267,20 +247,16 @@ void App::idle() {
             enemies[1]->decrementX();
             enemies[2]->decrementX();
             enemies[3]->decrementX();
+			enemies[4]->decrementX();
+			enemies[5]->decrementX();
+
             increaseSpeed();
-            float num = enemyCreation() + 6.5;
+            float num = enemyCreation() + 10.0;
             for (int i = 0; i < enemies.size(); i++){
                 if ((enemies[i]->getX() + enemies[i]->getH()) < enemies[i]->getBoundry()) {
                     enemies[i]->setX(num);
                     enemies[i]->is_increment = false;
-                    if (i == 3) {
-                        //srand(time(0));
-                        //cout << "rand shuff" << endl;
-                        //auto engine = default_random_engine{};
-                        //shuffle(enemies.begin(), enemies.end(), engine);
-                        //random_shuffle(enemies.begin(), enemies.end(),rand()%4);
-                        randomize();
-                    }
+                 
                 }
             }
             for (int i = 0; i < enemies.size(); i++){
@@ -290,54 +266,7 @@ void App::idle() {
                         enemies[i]->is_increment = true;
                     }
                 }
-            }
-            
-            //				if ((enemies[0]->getX() + enemies[0]->getH()) < -1.0) {
-            //					enemies[0]->setX(num);
-            //					enemies[0]->is_increment = false;
-            //
-            //				}
-            //				if ((enemies[1]->getX() + enemies[1]->getH()) < -1.0) {
-            //					enemies[1]->setX(num);
-            //					enemies[1]->is_increment = false;
-            //				}
-            //
-            //				if ((enemies[2]->getX() + enemies[2]->getH()) < -1.3) {
-            //					enemies[2]->setX(num);
-            //					enemies[2]->is_increment = false;
-            //				}
-            //				if ((enemies[3]->getX() + enemies[3]->getH()) < -1.3) {
-            //					enemies[3]->setX(num);
-            //					enemies[3]->is_increment = false;
-            //				}
-            
-            //				if ((enemies[0]->getX() + enemies[0]->getH()) < -.8 && (enemies[0]->getX() + enemies[0]->getH()) >= -1.0) {
-            //					if (!(enemies[0]->is_increment)) {
-            //						score++;
-            //						enemies[0]->is_increment = true;
-            //					}
-            //
-            //				}
-            //				if ((enemies[1]->getX() + enemies[1]->getH()) < -.8 && (enemies[1]->getX() + enemies[1]->getH()) >= -1.0) {
-            //					if (!(enemies[1]->is_increment)) {
-            //						score++;
-            //						enemies[1]->is_increment = true;
-            //					}
-            //				}
-            //
-            //				if ((enemies[2]->getX() + enemies[2]->getH()) < -.8 && (enemies[2]->getX() + enemies[2]->getH()) >= -1.3) {
-            //					if (!(enemies[2]->is_increment)) {
-            //						score++;
-            //						enemies[2]->is_increment = true;
-            //					}
-            //				}
-            //				if ((enemies[3]->getX() + enemies[3]->getH()) < -.8 && (enemies[3]->getX() + enemies[3]->getH()) >= -1.3) {
-            //					if (!(enemies[3]->is_increment)) {
-            //						score++;
-            //						enemies[3]->is_increment = true;
-            //					}
-            //				}
-            
+            } 
         }
         if (jump && !mc->get_is_crouch()) {
             float tmp_y = mc->getY();
